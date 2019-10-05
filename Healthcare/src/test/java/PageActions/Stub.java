@@ -26,8 +26,7 @@ public class Stub {
 	}
 
 	public static void initESD() {
-		String url = "file:///" + System.getProperty("user.dir")
-				+ "/src/test/resources/HTML files/Environments%20(3).html";
+		String url = "file:///" + System.getProperty("user.dir") + "/src/test/resources/HTML files/Environments.html";
 		System.out.println(url);
 		CUtil.OpenBrowser(url);
 		if (!flag) {
@@ -59,8 +58,7 @@ public class Stub {
 	}
 
 	public static void initCCR() {
-		String url = "file:///" + System.getProperty("user.dir")
-				+ "/src/test/resources/HTML files/Environments%20(3).html";
+		String url = "file:///" + System.getProperty("user.dir") + "/src/test/resources/HTML files/Environments.html";
 		System.out.println(url);
 		CUtil.OpenBrowser(url);
 		if (!flag) {
