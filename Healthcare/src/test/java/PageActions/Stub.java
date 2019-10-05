@@ -44,7 +44,7 @@ public class Stub {
 			Thread.sleep(5000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			// e.printStackTrace();
 		}
 		CUtil.click(By.xpath("//a[text()='Go to ESD']"));
 		CUtil.switchToWindow("window1");
