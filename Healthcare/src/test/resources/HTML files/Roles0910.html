@@ -1,0 +1,1326 @@
+﻿<!DOCTYPE HTML>
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882">
+    <head>
+		<meta charset="utf-8"/>
+        <title>Roles</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+        <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+		</head>
+    <body style="background: #E8E8E8;">
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+                    <a class="navbar-brand" href="#">FFM 101</a>
+				</div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="functional.html">Functional</a></li>
+                        <li><a href="environments.html">Environments</a></li>
+                        <li class="active"><a href="#" class="dropdown-toggle" role="button">Roles</a></li>
+						<li><a href="GetSAML.html">Get SAML</a></li>
+						<li><a href="Alfresco.html">Alfresco</a></li>
+						<li><a href="PCClassic.html">PC Classic</a></li>
+					</ul>
+				</div><!--/.nav-collapse -->
+			</div>
+		</nav>
+		<div id="container" style="margin: 100px 250px 20px 250px;">
+			<div class="content">
+				<h1>Roles - 9/09/2019</h1>
+				<br>
+				<fieldset id="roleFieldset">
+					<legend>Which role?</legend>
+					<div class="btn-group" data-toggle="buttons" style="width: 100%;">
+						<label for="esdRole" class="btn btn-primary btn-lg"><input type="radio" id="esdRole" name="role" value="esd">ESD</label>
+						<!--<label for="appealsRole" class="btn btn-primary btn-lg"><input type="radio" id="appealsRole" name="role" value="appeals">Appeals Worker</label>-->
+						<label for="abRole" class="btn btn-primary btn-lg"><input type="radio" id="abRole" name="role" value="agent">Agent/Broker</label>
+						<label for="ccrRole" class="btn btn-primary btn-lg"><input type="radio" id="ccrRole" name="role" value="ccr">CCR</label>
+						<label for="deConsumerRole" class="btn btn-primary btn-lg"><input type="radio" id="deConsumerRole" name="role" value="de">Direct Enrollment Consumer</label>
+						<label for="deProxyRole" class="btn btn-primary btn-lg"><input type="radio" id="deProxyRole" name="role" value="deProxy">Direct Enrollment Proxy**</label>
+						<label for="arRole" class="btn btn-primary btn-lg"><input type="radio" id="arRole" name="role" value="ar">Advanced Resolution</label>
+					</div>
+				</fieldset>
+				<br>
+				<fieldset id="environmentFieldset" style="display: none;">
+					<legend>
+						Which environment? (Opens tab to set ACA cookie)
+						<div style="font:12px">
+							<i>(*) indicates updates are pending</i>
+						</div>
+					</legend>
+					
+					<div class="btn-group" data-toggle="buttons" style="width: 100%;">
+						<label for="test0env" class="btn btn-primary btn-lg"><input type="radio" id="test0env" name="environment" value="test0">Test0</label>
+						<label for="test2env" class="btn btn-primary btn-lg"><input type="radio" id="test2env" name="environment" value="test2">Test2</label>
+						<label for="test3env" class="btn btn-primary btn-lg"><input type="radio" id="test3env" name="environment" value="test3">Test3</label>
+						<label for="eeshoptest0env" class="btn btn-primary btn-lg"><input type="radio" id="eeshoptest0env" name="environment" value="eeshoptest0">Shop-Test0</label>
+
+						<label for="imp0env" class="btn btn-primary btn-lg"><input type="radio" id="imp0env" name="environment" value="imp0">Imp0</label>
+						<label for="imp1aenv" class="btn btn-primary btn-lg"><input type="radio" id="imp1aenv" name="environment" value="imp1a">Imp1a</label>
+						<label for="imp1benv" class="btn btn-primary btn-lg"><input type="radio" id="imp1benv" name="environment" value="imp1b">Imp1b</label>
+						<label for="imp2env" class="btn btn-primary btn-lg"><input type="radio" id="imp2env" name="environment" value="imp2">Imp2</label>
+						<label for="awstest0env" class="btn btn-primary btn-lg"><input type="radio" id="awstest0env" name="environment" value="awstest0">AWS_Test0</label>
+					     <label for="awstest1env" class="btn btn-primary btn-lg"><input type="radio" id="awstest1env" name="environment" value="test1">AWS_Test1</label>
+						<label for="awstest2env" class="btn btn-primary btn-lg"><input type="radio" id="awstest2env" name="environment" value="awstest2">AWS_Test2</label>
+						<label for="awsimpl0env" class="btn btn-primary btn-lg"><input type="radio" id="awsimpl0env" name="environment" value="awsimpl0">AWS_Impl0</label>
+						<label for="awsimpl1benv" class="btn btn-primary btn-lg"><input type="radio" id="awsimpl1benv" name="environment" value="awsimpl1b">AWS_Impl1b</label>
+						<label for="awsimpl1aenv" class="btn btn-primary btn-lg"><input type="radio" id="awsimpl1aenv" name="environment" value="awsimpl1a">AWS_Impl1a</label>
+						<label for="awsimpl2env" class="btn btn-primary btn-lg"><input type="radio" id="awsimpl2env" name="environment" value="awsimpl2">AWS_Impl2</label>
+                        <label for="uat0env" class="btn btn-primary btn-lg"><input type="radio" id="uat0env" name="environment" value="uat0">AWS_UAT0</label>
+						<label for="testpeenv" class="btn btn-primary btn-lg"><input type="radio" id="testpeenv" name="environment" value="testpe">TESTPE</label>
+						
+					</div>
+				</fieldset>
+				<br>
+				
+				<div id="allSteps">
+					
+					<div id="esdSteps" style="display: none;">
+						<h3>Steps:</h3>
+						<strong>
+							<ol style="font-weight: 1.5em;">
+								<li>
+									<p>Log in: </p>
+									<table id="esdTable"  style="width:25%" class="table table-striped table-bordered">
+										<tr>
+											<td>Username</td>
+											<td>Password</td>
+										</tr>
+									</table>
+								</li>
+								<li>
+									<a id="esdLink" href="" target="_blank">Go to ESD</a>
+								</li>
+							</ol>
+						</strong>
+					</div>
+					<div id="appealsSteps" style="display: none;">
+						<h3>Steps:</h3>
+						<strong>
+							<ol>
+								<li>
+									<p>Log in: </p>
+									<table id="awTable"  style="width:25%" class="table table-striped table-bordered">
+										<tr>
+											<td>Username</td>
+											<td>Password</td>
+										</tr>
+									</table>
+								</li>
+								<li>
+									<a id="appealsLink" href="" target="_blank">Go to appeals desktop</a>
+								</li>
+							</ol>
+						</strong>
+					</div>
+					<div id="ccrSteps" style="display: none;">
+						<h3>Steps:</h3>
+						<strong>
+							<ol>
+								<li>
+									<p><a id="ccrLink" href="" target="_blank">Get SAML</a></p>
+									<p>Username: test</p>
+									<p>Password: Test@1234</p>
+								</li>
+								<li>
+									<form id="ccrForm" method="post" action=""  target="_blank">
+										<strong>Post To NGDCCR Landing Page</strong>
+										<br />
+										<table>
+											<tr>
+												<td>Applicant ID</td>
+												<td><input id="applicantIdCCR" type="text" name="APPLICANT_ID" /></td>
+											</tr>
+											<tr>
+												<td>Application ID</td>
+												<td><input id="appIdCCR" type="text" name="APPLICATION_ID" /></td>
+											</tr>
+											<tr>
+												<td>State ID</td>
+												<td><input id="stateCCR" type="text" name="STATE_ID" /></td>
+											</tr>
+										</table>
+										<!--
+											<label for="applicantIdCCR">Applicant ID:</label>
+											<input id="applicantIdCCR" type="text" name="APPLICANT_ID" />
+											<br />
+											<label for="appIdCCR">Application ID:</label>
+											<input id="appIdCCR" type="text" name="APPLICATION_ID" />
+											<br />
+											<label for="stateCCR">State ID:</label>
+											<input id="stateCCR" type="text" name="STATE_ID" />
+										<br />-->
+										<p>SAML Response:</p>
+										<textarea id="samlCCR" name="SAMLResponse" placeholder="Paste the SAML to Post" cols="120" rows="10"></textarea>
+										<br />
+										<input type="submit" class="btn btn-success" value="Submit" />
+									</form>
+								</li>
+							</ol>
+						</strong>
+					</div>
+					<div id="agentSteps" style="display: none;">
+						<h3>Steps:</h3>
+						<strong>
+							<ol>
+								<li>
+									AB Username:
+									<select id="ABSubmit" type="text">
+									</select>
+								</li>
+								<li>
+									<p>
+										<a id="agentLink" href="" target="_blank"><b>Get SAML</b></a><br />
+										<p>Username: test</p>
+										<p>Password: Test@1234</p>
+									</p>
+								</li>
+
+
+								<li>
+								<p>Password: <span id="agentPassword"></span></p>
+									<form id="agentForm" method="post" action="" target="_blank">
+										<p>POST SAML To Broker Service</p>
+										<textarea name="SAMLResponse" placeholder="Paste the SAML to Post" cols="120" rows="10"></textarea>
+										<br>
+										<input type="submit" class="btn btn-success" value="Submit" />
+									</form>
+								<br>
+								<form id="agentSpanishForm" method="post" action="" target="_blank">
+									<p>POST SAML To <u>Spanish</u> Broker Service</p>
+									<textarea name="SAMLResponse" placeholder="Paste the SAML to Post" cols="120" rows="10"></textarea>
+									<br>
+									<input type="submit" class="btn btn-success" value="Submit Spanish" />
+								</form>
+								<br>
+							</li>
+						</ol>
+					</strong>
+				</div>
+				<div id="deSteps" style="display: none;">
+					<h3>Steps:</h3>
+					<strong>
+						<ol>
+							<li>
+								<p>
+									<a id="deLink" href="" target="_blank">Get SAML</a><br />
+									<p>Username: test</p>
+									<p>Password: Test@1234</p>
+								</p>
+							</li>
+							<li>
+								<form id="deForm" method="post" action="" target="_blank">
+									<strong>POST SAML To Broker Service</strong>
+									<br />
+									<textarea name="SAMLResponse" placeholder="Paste the SAML to Post"  cols="80" rows="10"></textarea>
+									<br />
+									<input type="submit" class="btn btn-success" value="Submit" />
+								</form>
+								<br>
+								<form id="deSpanishForm" method="post" action="" target="_blank">
+									<p>POST SAML To <u>Spanish</u> Broker Service</p>
+									<textarea name="SAMLResponse" placeholder="Paste the SAML to Post" cols="80" rows="10"></textarea>
+									<br>
+									<input type="submit" class="btn btn-success" value="Submit Spanish" />
+								</form>
+								<!--
+									<form  method="post" action="https://imp.cuidadodesalud.gov/marketplace/espBrokerService" target="_blank">
+									<strong>POST SAML To Broker Service IMP0</strong>
+									<br />
+									<textarea name="SAMLResponse" placeholder="Paste the SAML to Post"  cols="50" rows="5"></textarea>
+									<br />
+									<input type="submit" class="btn btn-success" value="Submit" />
+									</form>
+								-->
+								<br>
+							</li>
+						</ol>
+					</strong>
+				</div>
+				<div id="deProxySteps" style="display: none;">
+					
+					<h3>Steps:</h3>
+					<h4 style="color:red;">Please note for R46.0, DE Proxy will be retired</h4>
+					<strong>
+						<ol>
+							<li>
+								DE Proxy Username:
+								<select id="deProxySubmit" type="text">
+								</select>
+							</li>
+							<li>
+								<p>
+									<a id="deProxyLink" href="" target="_blank"><b>Get SAML</b></a><br />
+									<p>Username: test</p>
+									<p>Password: Test@1234</p>
+								</p>
+							</li>
+
+							<li>
+								<p>Password: <span id="deProxyPassword"></span></p>
+									<form id="deProxyForm" method="post" action="" target="_blank">
+										<p>POST SAML To Broker Service</p>
+										<textarea name="SAMLResponse" placeholder="Paste the SAML to Post" cols="120" rows="10"></textarea>
+										<br>
+										<input type="submit" class="btn btn-success" value="Submit" />
+									</form>
+								<br>
+								<form id="deProxySpanishForm" method="post" action="" target="_blank">
+									<p>POST SAML To <u>Spanish</u> Broker Service</p>
+									<textarea name="SAMLResponse" placeholder="Paste the SAML to Post" cols="120" rows="10"></textarea>
+									<br>
+									<input type="submit" class="btn btn-success" value="Submit Spanish" />
+								</form>
+								<br>
+							</li>
+						</ol>
+					</strong>
+				</div>
+				<div id="arSteps" style="display: none;">
+						<h3>Steps:</h3>
+						<strong>
+							<ol>
+								<li>The first POST request will drop all parameters, you will not be able to search app on the first POST. This is NOT a defect
+								</li>
+								<li>
+									<p class="arTest" style="display: none;">
+									<a id="arLinkTest" href="https://portaldev.cms.gov/wps/portal/unauthportal/home/" target="_blank">Log into <strong>TEST</strong> EIDM With AR User Credentials</a>
+										<table style="width:25%" class="table table-striped table-bordered arTest">
+											<tbody>
+													<tr>
+														<td><strong>User</strong></td>
+														<td><strong>Password</strong></td>
+													</tr>
+													<tr>
+														<td>RestapiEidm101</td>
+														<td>Sep0919#</td>
+													</tr>
+													<tr>
+														<td>RestapiEidm102</td>
+														<td>Sep0919#</td>
+													</tr>
+											//		<tr>
+											//			<td>RestapiEidm103</td>
+											//			<td>Sep0919#</td>
+											//		</tr>
+													<tr>
+														<td>RestapiEidm104</td>
+														<td>Sep0919#</td>
+													</tr>
+													<tr>
+														<td>RestapiEidm105</td>
+														<td>Sep0919#</td>
+													</tr>
+
+											</tbody>
+										</table>
+									</p>
+									<p class="arImpl" style="display: none;"><a id="arLinkImpl" href="https://portalval.cms.gov/wps/portal/unauthportal/home/" target="_blank">Log into <strong>IMPL</strong> EIDM With AR User Credentials</a>
+
+										<table style="width:25%" class="table table-striped table-bordered arImpl">
+											<tbody>
+													<tr>
+														<td><strong>User</strong></td>
+														<td><strong>Password</strong></td>
+													</tr>
+													<tr>
+														<td>RestapiEidm101</td>
+														<td>Sep0919#</td>
+													</tr>
+													<tr>
+														<td>RestapiEidm102</td>
+														<td>Sep0919#</td>
+													</tr>
+													<tr>
+														<td>RestapiEidm103</td>
+														<td>Sep0919#</td>
+													</tr>
+													<tr>
+														<td>RestapiEidm104</td>
+														<td>Sep0919#</td>
+													</tr>
+													<tr>
+														<td>RestapiEidm105</td>
+														<td>Sep0919#</td>
+													</tr>
+
+											</tbody>
+										</table>
+									</p>
+								</li>
+								<li>
+									<form id="arFormEnglish" method="post" action=""  target="_blank">
+										<strong>Post To English AR Landing Page</strong>
+										<br />
+										<table>
+											<tr>
+												<td>Applicant ID</td>
+												<td><input id="applicantIdAR" type="text" name="APPLICANT_ID" /></td>
+											</tr>
+											<tr>
+												<td>Application ID</td>
+												<td><input id="appIdAR" type="text" name="APPLICATION_ID" /></td>
+											</tr>
+											<tr>
+												<td>State ID</td>
+												<td><input id="stateAR" type="text" name="STATE_ID" /></td>
+											</tr>
+										</table>
+										<input type="submit" class="btn btn-success" value="Submit" />
+										</form>
+								</li>
+								<li>
+									<form id="arFormSpanish" method="post" action=""  target="_blank">
+										<strong>Post To Spanish AR Landing Page - This does not work currently</strong>
+										<br />
+										<table>
+											<tr>
+												<td>Applicant ID</td>
+												<td><input id="applicantIdARSp" type="text" name="APPLICANT_ID" /></td>
+											</tr>
+											<tr>
+												<td>Application ID</td>
+												<td><input id="appIdARSp" type="text" name="APPLICATION_ID" /></td>
+											</tr>
+											<tr>
+												<td>State ID</td>
+												<td><input id="stateARSp" type="text" name="STATE_ID" /></td>
+											</tr>
+										</table>
+										<input type="submit" class="btn btn-success" value="Submit" />
+									</form>
+								</li>
+							</ol>
+						</strong>
+					</div>
+				<div id="noUI" style="display:none;">
+					<h3 style="color:red;">Note: This environment does NOT have a UI.</h3>
+				</div>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript">
+		$(function() {
+			//ESD, A/B, AR login owned by NAVA
+			var ESD_LANDING_PAGE_URL_LINK_SUFFIX_WITH_IDP_PARAM = 'sso/saml/eswfed?idp=eidm';
+			var CCR_LANDING_PAGE_URL_SUFFIX ='marketplace/NGDCCRDirectLanding';
+			var ESD_LEGACY_LANDING_PAGE_URL_LINK_SUFIX = 'marketplace/auth/ESDLandingPage';
+			var envData = {};
+			var STRING_TRUE = "true";
+			var STRING_FALSE = "false";
+
+			envData.test0 = {};
+			envData.test0.url = 'https://test.healthcare.gov/';
+			envData.test0.spnUrl= 'https://test.cuidadodesalud.gov/';
+			envData.test0.cookieURL = envData.test0.url + '?ACA=Sxz0KhIx4h';
+			envData.test0.spnCookieURL = 'https://test.cuidadodesalud.gov/?ACA=I0HJwt6OrE';
+			envData.test0.esd = {};
+			envData.test0.esd.linkURL = envData.test0.url + ESD_LANDING_PAGE_URL_LINK_SUFFIX_WITH_IDP_PARAM;
+			envData.test0.agent = {};
+			envData.test0.agent.loginURL = envData.test0.url + 'marketplace/brokerService';
+			envData.test0.agent.spnloginURL = 'https://test.cuidadodesalud.gov/marketplace/espBrokerService';
+			envData.test0.ccr = {};
+			envData.test0.ccr.linkURL = 'http://10.130.73.198:8080/ee/simulate-ngd';
+			envData.test0.ccr.loginURL = envData.test0.url + CCR_LANDING_PAGE_URL_SUFFIX;
+			envData.test0.de = {};
+			envData.test0.de.linkURL = getDELink();
+			envData.test0.de.loginURL = envData.test0.url +'marketplace/brokerService/';		//DO NOT REMOVE THIS
+			envData.test0.de.spnloginURL = 'https://test.cuidadodesalud.gov/marketplace/espBrokerService';
+			envData.test0.deProxy = {};
+			envData.test0.deProxy.loginURL = envData.test0.url +'marketplace/brokerService/';
+			envData.test0.deProxy.spnloginURL = 'https://test.cuidadodesalud.gov/marketplace/espBrokerService';
+
+			envData.test0.ar = {};
+			envData.test0.ar.linkURL = "";
+			envData.test0.ar.loginURL = getARLink(envData.test0.url, STRING_TRUE);
+			envData.test0.ar.spnloginURL = getARLink(envData.test0.spnUrl, STRING_TRUE);
+
+
+			envData.test2 = {};
+			envData.test2.url = 'https://test2.healthcare.gov/';
+			envData.test2.spnUrl= 'https://test2.cuidadodesalud.gov/';
+			envData.test2.cookieURL = envData.test2.url + '?ACA=qxNd9WLJnC';
+			envData.test2.spnCookieURL = 'https://test2.cuidadodesalud.gov/?ACA=sd0IQJuSkR';
+			envData.test2.esd = {};
+			envData.test2.esd.linkURL = envData.test2.url + ESD_LANDING_PAGE_URL_LINK_SUFFIX_WITH_IDP_PARAM;
+			envData.test2.agent = {};
+			envData.test2.agent.loginURL = envData.test2.url + 'marketplace/brokerService';
+			envData.test2.agent.spnloginURL = 'https://test2.cuidadodesalud.gov/marketplace/espBrokerService';
+			envData.test2.ccr = {};
+			envData.test2.ccr.linkURL = 'http://10.130.73.198:8080/ee/simulate-ngd';
+			envData.test2.ccr.loginURL = envData.test2.url + CCR_LANDING_PAGE_URL_SUFFIX;
+			envData.test2.de = {};
+			envData.test2.de.linkURL = getDELink();
+			envData.test2.de.loginURL = envData.test2.url + 'marketplace/brokerService/';
+			envData.test2.de.spnloginURL = 'https://test2.cuidadodesalud.gov/marketplace/espBrokerService';
+			envData.test2.deProxy = {};
+			envData.test2.deProxy.loginURL = envData.test2.url +'marketplace/brokerService/';
+			envData.test2.deProxy.spnloginURL = 'https://test2.cuidadodesalud.gov/marketplace/espBrokerService';
+
+			envData.test2.ar = {};
+			envData.test2.ar.linkURL = "";
+			envData.test2.ar.loginURL = getARLink(envData.test2.url, STRING_TRUE);
+			envData.test2.ar.spnloginURL = getARLink(envData.test2.spnUrl, STRING_TRUE);
+
+			envData.test3 = {};
+			envData.test3.url = 'https://test3.healthcare.gov/';
+			envData.test3.spnUrl= 'https://test3.cuidadodesalud.gov/';
+			envData.test3.cookieURL = envData.test3.url + '?ACA=krDhQ6l5xb';
+			envData.test3.spnCookieURL = 'https://test3.cuidadodesalud.gov/?ACA=fh0EPPQvXx';
+			envData.test3.esd = {};
+			envData.test3.esd.linkURL = envData.test3.url + ESD_LANDING_PAGE_URL_LINK_SUFFIX_WITH_IDP_PARAM;
+			envData.test3.agent = {};
+			envData.test3.agent.loginURL = envData.test3.url + 'marketplace/brokerService';
+			envData.test3.agent.spnloginURL = 'https://test3.cuidadodesalud.gov/marketplace/espBrokerService';
+			envData.test3.ccr = {};
+			envData.test3.ccr.linkURL = 'http://10.130.73.198:8080/ee/simulate-ngd';
+			envData.test3.ccr.loginURL = envData.test3.url + CCR_LANDING_PAGE_URL_SUFFIX;
+			envData.test3.de = {};
+			envData.test3.de.linkURL = getDELink();
+			envData.test3.de.loginURL = envData.test3.url + 'marketplace/brokerService/';
+			envData.test3.de.spnloginURL = 'https://test3.cuidadodesalud.gov/marketplace/espBrokerService';
+			envData.test3.deProxy = {};
+			envData.test3.deProxy.loginURL = envData.test3.url +'marketplace/brokerService/';
+			envData.test3.deProxy.spnloginURL = 'https://test3.cuidadodesalud.gov/marketplace/espBrokerService';
+
+			envData.test3.ar = {};
+			envData.test3.ar.linkURL = "";
+			envData.test3.ar.loginURL = getARLink(envData.test3.url, STRING_TRUE);
+			envData.test3.ar.spnloginURL = getARLink(envData.test3.spnUrl, STRING_TRUE);
+
+
+			envData.eeshoptest0 = {};
+			envData.eeshoptest0.url = 'https://test0.eeshop.healthcare.gov/';
+			envData.eeshoptest0.spnUrl= 'https://test0.eeshop.cuidadodesalud.gov/';
+			envData.eeshoptest0.cookieURL = envData.eeshoptest0.url + '?ACA=rPPRoOI3q8d9';
+			envData.eeshoptest0.spnCookieURL = 'https://test0.eeshop.cuidadodesalud.gov/?ACA=jrxBR5y7oxcm';
+			envData.eeshoptest0.esd = {};
+			envData.eeshoptest0.esd.linkURL = envData.eeshoptest0.url + ESD_LANDING_PAGE_URL_LINK_SUFFIX_WITH_IDP_PARAM;
+			envData.eeshoptest0.agent = {};
+			envData.eeshoptest0.agent.loginURL = envData.eeshoptest0.url + 'marketplace/brokerService';
+			envData.eeshoptest0.agent.spnloginURL = 'https://test0.eeshop.cuidadodesalud.gov/marketplace/espBrokerService';
+			envData.eeshoptest0.ccr = {};
+			envData.eeshoptest0.ccr.linkURL = 'http://10.130.73.198:8080/ee/simulate-ngd';
+			envData.eeshoptest0.ccr.loginURL = envData.eeshoptest0.url + CCR_LANDING_PAGE_URL_SUFFIX;
+			envData.eeshoptest0.de = {};
+			envData.eeshoptest0.de.linkURL = getDELink();
+			envData.eeshoptest0.de.loginURL = envData.eeshoptest0.url + 'marketplace/brokerService/';
+			envData.eeshoptest0.de.spnloginURL = 'https://test0.eeshop.cuidadodesalud.gov/marketplace/espBrokerService';
+			envData.eeshoptest0.deProxy = {};
+			envData.eeshoptest0.deProxy.loginURL = envData.eeshoptest0.url +'marketplace/brokerService/';
+			envData.eeshoptest0.deProxy.spnloginURL = 'https://test0.eeshop.cuidadodesalud.gov/marketplace/espBrokerService';
+
+			envData.eeshoptest0.ar = {};
+			envData.eeshoptest0.ar.linkURL = "";
+			envData.eeshoptest0.ar.loginURL = getARLink(envData.eeshoptest0.url, STRING_TRUE);
+			envData.eeshoptest0.ar.spnloginURL = getARLink(envData.eeshoptest0.spnUrl, STRING_TRUE);
+
+			envData.imp0 = {};
+			envData.imp0.url = 'https://imp.healthcare.gov/';
+			envData.imp0.spnUrl= 'https://imp.cuidadodesalud.gov/';
+			envData.imp0.cookieURL = envData.imp0.url + '?ACA=fCzfNu4f6D2h';
+			envData.imp0.spnCookieURL = 'https://imp.cuidadodesalud.gov/?ACA=N2NRizGnPeGa';
+			envData.imp0.esd = {};
+			envData.imp0.esd.linkURL = envData.imp0.url + ESD_LANDING_PAGE_URL_LINK_SUFFIX_WITH_IDP_PARAM;
+			envData.imp0.agent = {};
+			envData.imp0.agent.loginURL = envData.imp0.url + 'marketplace/brokerService';
+			envData.imp0.agent.spnloginURL = 'https://imp.cuidadodesalud.gov/marketplace/espBrokerService';
+			envData.imp0.ccr = {};
+			envData.imp0.ccr.linkURL = 'http://10.130.73.198:8080/ee/simulate-ngd';
+			envData.imp0.ccr.loginURL = envData.imp0.url + CCR_LANDING_PAGE_URL_SUFFIX;
+			envData.imp0.de = {};
+			envData.imp0.de.linkURL = getDELink();
+			envData.imp0.de.loginURL = envData.imp0.url + 'marketplace/brokerService/';
+			envData.imp0.de.spnloginURL = 'https://imp.cuidadodesalud.gov/marketplace/espBrokerService';
+			envData.imp0.deProxy = {};
+			envData.imp0.deProxy.loginURL = envData.imp0.url +'marketplace/brokerService/';
+			envData.imp0.deProxy.spnloginURL = 'https://imp.cuidadodesalud.gov/marketplace/espBrokerService';
+
+			envData.imp0.ar = {};
+			envData.imp0.ar.linkURL = "";
+			envData.imp0.ar.loginURL = getARLink(envData.imp0.url, STRING_FALSE);
+			envData.imp0.ar.spnloginURL = getARLink(envData.imp0.spnUrl, STRING_FALSE);
+
+			envData.imp1a = {};
+			envData.imp1a.url = 'https://imp1a.healthcare.gov/';
+			envData.imp1a.spnUrl= 'https://imp1a.cuidadodesalud.gov/';
+			envData.imp1a.cookieURL = envData.imp1a.url + '?ACA=Jtcmycu7AS';
+			envData.imp1a.spnCookieURL = 'https://imp1a.cuidadodesalud.gov/?ACA=pf0DIFXcUb';
+			envData.imp1a.esd = {};
+			envData.imp1a.esd.linkURL = envData.imp1a.url + ESD_LANDING_PAGE_URL_LINK_SUFFIX_WITH_IDP_PARAM;
+			envData.imp1a.agent = {};
+			envData.imp1a.agent.loginURL = envData.imp1a.url + 'marketplace/brokerService';
+			envData.imp1a.agent.spnloginURL = 'https://imp1a.cuidadodesalud.gov/marketplace/espBrokerService';
+			envData.imp1a.ccr = {};
+			envData.imp1a.ccr.linkURL = 'http://10.130.73.198:8080/ee/simulate-ngd';
+			envData.imp1a.ccr.loginURL = envData.imp1a.url + CCR_LANDING_PAGE_URL_SUFFIX;
+			envData.imp1a.de = {};
+			envData.imp1a.de.linkURL = getDELink();
+			envData.imp1a.de.loginURL = envData.imp1a.url + 'marketplace/brokerService/';
+			envData.imp1a.de.spnloginURL = 'https://imp1a.cuidadodesalud.gov/marketplace/espBrokerService';
+			envData.imp1a.deProxy = {};
+			envData.imp1a.deProxy.loginURL = envData.imp1a.url +'marketplace/brokerService/';
+			envData.imp1a.deProxy.spnloginURL = 'https://imp1a.cuidadodesalud.gov/marketplace/espBrokerService';
+
+			envData.imp1a.ar = {};
+			envData.imp1a.ar.linkURL = "";
+			envData.imp1a.ar.loginURL = getARLink(envData.imp1a.url, STRING_FALSE);
+			envData.imp1a.ar.spnloginURL = getARLink(envData.imp1a.spnUrl, STRING_FALSE);
+
+			envData.imp1b = {};
+			envData.imp1b.url = 'https://imp1b.healthcare.gov/';
+			envData.imp1b.spnUrl= 'https://imp1b.cuidadodesalud.gov/';
+			envData.imp1b.cookieURL = envData.imp1b.url + '?ACA=dkoWNx0fHl';
+			envData.imp1b.spnCookieURL = 'https://imp1b.cuidadodesalud.gov/?ACA=ZIRFL7tBCR';
+			envData.imp1b.esd = {};
+			envData.imp1b.esd.linkURL = envData.imp1b.url + ESD_LANDING_PAGE_URL_LINK_SUFFIX_WITH_IDP_PARAM;
+			envData.imp1b.agent = {};
+			envData.imp1b.agent.loginURL = envData.imp1b.url + 'marketplace/brokerService';
+			envData.imp1b.agent.spnloginURL = 'https://imp1b.cuidadodesalud.gov/marketplace/espBrokerService';
+			envData.imp1b.ccr = {};
+			envData.imp1b.ccr.linkURL = 'http://10.130.73.198:8080/ee/simulate-ngd';
+			envData.imp1b.ccr.loginURL = envData.imp1b.url + CCR_LANDING_PAGE_URL_SUFFIX; //NGDCCRLandingPage   NGDCCRDirectLanding
+			envData.imp1b.de = {};
+			envData.imp1b.de.linkURL = getDELink();
+			envData.imp1b.de.loginURL = envData.imp1b.url + 'marketplace/brokerService/';
+			envData.imp1b.de.spnloginURL = 'https://imp1b.cuidadodesalud.gov/marketplace/espBrokerService';
+			envData.imp1b.deProxy = {};
+			envData.imp1b.deProxy.loginURL = envData.imp1b.url +'marketplace/brokerService/';
+			envData.imp1b.deProxy.spnloginURL = 'https://imp1b.cuidadodesalud.gov/marketplace/espBrokerService';
+			//TODO:update
+			envData.imp1b.ar = {};
+			envData.imp1b.ar.linkURL = "";
+			envData.imp1b.ar.loginURL = getARLink(envData.imp1b.url, STRING_FALSE);
+			envData.imp1b.ar.spnloginURL = getARLink(envData.imp1b.spnUrl, STRING_FALSE);
+
+			envData.imp2 = {};
+			envData.imp2.url = 'https://imp2.healthcare.gov/';
+			envData.imp2.cookieURL = envData.imp2.url + '?ACA=qsyWy9wXUk';
+			envData.imp2.spnUrl= 'https://imp2.cuidadodesalud.gov';
+			envData.imp2.spnCookieURL = 'https://imp2.cuidadodesalud.gov/?ACA=9bJk2EYvfl';
+			envData.imp2.esd = {};
+			envData.imp2.esd.linkURL = envData.imp2.url + ESD_LANDING_PAGE_URL_LINK_SUFFIX_WITH_IDP_PARAM;
+			envData.imp2.agent = {};
+			envData.imp2.agent.loginURL = envData.imp2.url + 'marketplace/brokerService';
+			envData.imp2.agent.spnloginURL = 'https://imp2.cuidadodesalud.gov/marketplace/espBrokerService';
+			envData.imp2.ccr = {};
+			envData.imp2.ccr.linkURL = 'http://10.130.73.198:8080/ee/simulate-ngd';
+			envData.imp2.ccr.loginURL = envData.imp2.url + CCR_LANDING_PAGE_URL_SUFFIX;
+			envData.imp2.de = {};
+			envData.imp2.de.linkURL = getDELink();
+			envData.imp2.de.loginURL = envData.imp2.url + 'marketplace/brokerService/';
+			envData.imp2.de.spnloginURL = 'https://imp2.cuidadodesalud.gov/marketplace/espBrokerService';
+			envData.imp2.deProxy = {};
+			envData.imp2.deProxy.loginURL = envData.imp2.url +'marketplace/brokerService/';
+			envData.imp2.deProxy.spnloginURL = 'https://imp2.cuidadodesalud.gov/marketplace/espBrokerService';
+			//TODO:update
+			envData.imp2.ar = {};
+			envData.imp2.ar.linkURL = "";
+			envData.imp2.ar.loginURL = getARLink(envData.imp2.url, STRING_TRUE);
+			envData.imp2.ar.spnloginURL = getARLink(envData.imp2.spnUrl, STRING_TRUE);
+			
+            envData.uat0 = {};
+			envData.uat0.url = 'https://uat0.healthcare.gov/';
+			envData.uat0.cookieURL = envData.uat0.url + '?ACA=ilQyWFccwc';
+			envData.uat0.spnUrl ='https://uat0.cuidadodesalud.gov/';
+			envData.uat0.spnCookieURL = 'https://uat0.cuidadodesalud.gov/?ACA=QB3hzCQke5';
+			envData.uat0.esd = {};
+			envData.uat0.esd.linkURL = envData.uat0.url + ESD_LANDING_PAGE_URL_LINK_SUFFIX_WITH_IDP_PARAM;
+			envData.uat0.agent = {};
+			envData.uat0.agent.loginURL = envData.uat0.url + 'marketplace/brokerService';
+			envData.uat0.agent.spnloginURL = 'https://uat0.cuidadodesalud.gov/marketplace/espBrokerService';
+			envData.uat0.ccr = {};
+			envData.uat0.ccr.linkURL = 'http://10.130.73.198:8080/ee/simulate-ngd';
+			envData.uat0.ccr.loginURL = envData.uat0.url + CCR_LANDING_PAGE_URL_SUFFIX;
+			envData.uat0.de = {};
+			envData.uat0.de.linkURL = getDELink();
+			envData.uat0.de.loginURL = envData.uat0.url + 'marketplace/brokerService/';
+			envData.uat0.de.spnloginURL = 'https://uat0.cuidadodesalud.gov/marketplace/espBrokerService';
+			envData.uat0.deProxy = {};
+			envData.uat0.deProxy.loginURL = envData.uat0.url +'marketplace/brokerService/';
+			envData.uat0.deProxy.spnloginURL = 'https://uat0.cuidadodesalud.gov/marketplace/espBrokerService';
+			
+			envData.uat0.ar = {};
+			envData.uat0.ar.linkURL = "";
+			envData.uat0.ar.loginURL = getARLink(envData.uat0.url, STRING_TRUE);
+			envData.uat0.ar.spnloginURL = getARLink(envData.uat0.spnUrl, STRING_TRUE);
+
+			
+			//AWS TEST1
+			envData.test1 = {};
+			envData.test1.url = 'https://aws-test1.healthcare.gov/';
+			envData.test1.cookieURL = envData.test1.url + '?ACA=j6oWp9auZX';
+			envData.test1.spnUrl = 'https://aws-test1.cuidadodesalud.gov/';
+			envData.test1.spnCookieURL = 'https://aws-test1.cuidadodesalud.gov/?ACA=EC2igpJvw6';
+			envData.test1.esd = {};
+			envData.test1.esd.linkURL = envData.test1.url + ESD_LANDING_PAGE_URL_LINK_SUFFIX_WITH_IDP_PARAM;
+			envData.test1.agent = {};
+			envData.test1.agent.loginURL = envData.test1.url + 'marketplace/brokerService';
+			envData.test1.agent.spnloginURL = 'https://aws-test1.cuidadodesalud.gov/marketplace/espBrokerService';
+			envData.test1.ccr = {};
+			envData.test1.ccr.tempURL = 'https://sls-app.test1.healthcare.gov/?ACA=UwDf8YDOTc';
+			envData.test1.ccr.linkURL = 'http://10.130.73.198:8080/ee/simulate-ngd';
+			envData.test1.ccr.loginURL = envData.test1.url + CCR_LANDING_PAGE_URL_SUFFIX;
+			envData.test1.de = {};
+			envData.test1.de.linkURL = getDELink();
+			envData.test1.de.loginURL = envData.test1.url + 'marketplace/brokerService/';
+			envData.test1.de.spnloginURL = 'https://aws-test1.cuidadodesalud.gov/marketplace/espBrokerService';
+			envData.test1.deProxy = {};
+			envData.test1.deProxy.loginURL = envData.test1.url +'marketplace/brokerService/';
+			envData.test1.deProxy.spnloginURL = 'https://aws-test1.cuidadodesalud.gov/marketplace/espBrokerService';
+			
+			envData.test1.ar = {};
+			envData.test1.ar.linkURL = "";
+			envData.test1.ar.loginURL = getARLink(envData.test1.url, STRING_TRUE);
+			envData.test1.ar.spnloginURL = getARLink(envData.test1.spnUrl, STRING_TRUE);
+
+			//AWS TEST2
+			envData.awstest2 = {};
+			envData.awstest2.url = 'https://aws-test2.healthcare.gov/';
+			envData.awstest2.cookieURL = envData.awstest2.url + '?ACA=gy1i9pLAWC6L';
+			envData.awstest2.spnUrl = 'https://aws-test2.cuidadodesalud.gov/';
+			envData.awstest2.spnCookieURL = envData.awstest2.spnUrl + '?ACA=49ewOXPZdfDp';
+			envData.awstest2.esd = {};
+			envData.awstest2.esd.linkURL = envData.awstest2.url + ESD_LANDING_PAGE_URL_LINK_SUFFIX_WITH_IDP_PARAM;
+			envData.awstest2.agent = {};
+			envData.awstest2.agent.loginURL = envData.awstest2.url + 'marketplace/brokerService';
+			envData.awstest2.agent.spnloginURL = 'https://aws-test2.cuidadodesalud.gov/marketplace/espBrokerService';
+			envData.awstest2.ccr = {};
+			envData.awstest2.ccr.tempURL = 'https://sls-app.awstest2.healthcare.gov/?ACA=UwDf8YDOTc'; //LOOK INTO COOKIE WITH OSKAR LATER
+			envData.awstest2.ccr.linkURL = 'http://10.130.73.198:8080/ee/simulate-ngd';
+			envData.awstest2.ccr.loginURL = envData.awstest2.url + CCR_LANDING_PAGE_URL_SUFFIX;
+			envData.awstest2.de = {};
+			envData.awstest2.de.linkURL = getDELink();
+			envData.awstest2.de.loginURL = envData.awstest2.url + 'marketplace/brokerService/';
+			envData.awstest2.de.spnloginURL = 'https://aws-test2.cuidadodesalud.gov/marketplace/espBrokerService';
+			envData.awstest2.deProxy = {};
+			envData.awstest2.deProxy.loginURL = envData.awstest2.url +'marketplace/brokerService/';
+			envData.awstest2.deProxy.spnloginURL = 'https://aws-test2.cuidadodesalud.gov/marketplace/espBrokerService';
+			
+			envData.awstest2.ar = {};
+			envData.awstest2.ar.linkURL = "";
+			envData.awstest2.ar.loginURL = getARLink(envData.awstest2.url, STRING_TRUE);
+			envData.awstest2.ar.spnloginURL = getARLink(envData.awstest2.spnUrl, STRING_TRUE);
+			
+			//AWS TEST0
+			envData.awstest0 = {};
+			envData.awstest0.url = 'https://test.healthcare.gov/';
+			envData.awstest0.cookieURL = envData.awstest0.url + '?ACA=Sxz0KhIx4h';
+			envData.awstest0.spnUrl = 'https://test.cuidadodesalud.gov/';
+			envData.awstest0.spnCookieURL = envData.awstest0.spnUrl + '?ACA=I0HJwt6OrE';
+			envData.awstest0.esd = {};
+			envData.awstest0.esd.linkURL = envData.awstest0.url + ESD_LANDING_PAGE_URL_LINK_SUFFIX_WITH_IDP_PARAM;
+			envData.awstest0.agent = {};
+			envData.awstest0.agent.loginURL = envData.awstest0.url + 'marketplace/brokerService';
+			envData.awstest0.agent.spnloginURL = 'https://aws-test0.cuidadodesalud.gov/marketplace/espBrokerService';
+			envData.awstest0.ccr = {};
+			envData.awstest0.ccr.tempURL = 'https://sls-app.awstest0.healthcare.gov/?ACA=UwDf8YDOTc'; //LOOK INTO COOKIE WITH OSKAR LATER
+			envData.awstest0.ccr.linkURL = 'http://10.130.73.198:8080/ee/simulate-ngd';
+			envData.awstest0.ccr.loginURL = envData.awstest0.url + CCR_LANDING_PAGE_URL_SUFFIX;
+			envData.awstest0.de = {};
+			envData.awstest0.de.linkURL = getDELink();
+			envData.awstest0.de.loginURL = envData.awstest0.url + 'marketplace/brokerService/';
+			envData.awstest0.de.spnloginURL = 'https://aws-test2.cuidadodesalud.gov/marketplace/espBrokerService';
+			envData.awstest0.deProxy = {};
+			envData.awstest0.deProxy.loginURL = envData.awstest0.url +'marketplace/brokerService/';
+			envData.awstest0.deProxy.spnloginURL = 'https://aws-test0.cuidadodesalud.gov/marketplace/espBrokerService';
+			
+			envData.awstest0.ar = {};
+			envData.awstest0.ar.linkURL = "";
+			envData.awstest0.ar.loginURL = getARLink(envData.awstest0.url, STRING_TRUE);
+			envData.awstest0.ar.spnloginURL = getARLink(envData.awstest0.spnUrl, STRING_TRUE);
+
+			//AWS IMPL2
+			envData.awsimpl2 = {};
+			envData.awsimpl2.url = 'https://imp2.healthcare.gov/';
+			envData.awsimpl2.cookieURL = envData.awsimpl2.url + '?ACA=qsyWy9wXUk';
+			envData.awsimpl2.spnUrl = 'https://imp2.cuidadodesalud.gov/';
+			envData.awsimpl2.spnCookieURL = envData.awsimpl2.spnUrl + '?ACA=9bJk2EYvfl';
+			envData.awsimpl2.esd = {};
+			envData.awsimpl2.esd.linkURL = envData.awsimpl2.url + ESD_LANDING_PAGE_URL_LINK_SUFFIX_WITH_IDP_PARAM;
+			envData.awsimpl2.agent = {};
+			envData.awsimpl2.agent.loginURL = envData.awsimpl2.url + 'marketplace/brokerService';
+			envData.awsimpl2.agent.spnloginURL = 'https://aws-impl2.cuidadodesalud.gov/marketplace/espBrokerService';
+			envData.awsimpl2.ccr = {};
+			envData.awsimpl2.ccr.tempURL = 'https://sls-app.awsimpl2.healthcare.gov/?ACA=UwDf8YDOTc'; //LOOK INTO COOKIE WITH OSKAR LATER
+			envData.awsimpl2.ccr.linkURL = 'http://10.130.73.198:8080/ee/simulate-ngd';
+			envData.awsimpl2.ccr.loginURL = envData.awsimpl2.url + CCR_LANDING_PAGE_URL_SUFFIX;
+			envData.awsimpl2.de = {};
+			envData.awsimpl2.de.linkURL = getDELink();
+			envData.awsimpl2.de.loginURL = envData.awsimpl2.url + 'marketplace/brokerService/';
+			envData.awsimpl2.de.spnloginURL = 'https://aws-impl2.cuidadodesalud.gov/marketplace/espBrokerService';
+			envData.awsimpl2.deProxy = {};
+			envData.awsimpl2.deProxy.loginURL = envData.awsimpl2.url +'marketplace/brokerService/';
+			envData.awsimpl2.deProxy.spnloginURL = 'https://aws-impl2.cuidadodesalud.gov/marketplace/espBrokerService';
+			
+			envData.awsimpl2.ar = {};
+			envData.awsimpl2.ar.linkURL = "";
+			envData.awsimpl2.ar.loginURL = getARLink(envData.awsimpl2.url, STRING_TRUE);
+			envData.awsimpl2.ar.spnloginURL = getARLink(envData.awsimpl2.spnUrl, STRING_TRUE);
+
+			//AWS IMPL0
+			envData.awsimpl0 = {};
+			envData.awsimpl0.url = 'https://imp.healthcare.gov/';
+			envData.awsimpl0.cookieURL = envData.awsimpl0.url + '?ACA=3EC6dYNOKY';
+			envData.awsimpl0.spnUrl = 'https://imp.cuidadodesalud.gov/';
+			envData.awsimpl0.spnCookieURL = envData.awsimpl0.spnUrl + '?ACA=dJWpzfyQtX';
+			envData.awsimpl0.esd = {};
+			envData.awsimpl0.esd.linkURL = envData.awsimpl0.url + ESD_LANDING_PAGE_URL_LINK_SUFFIX_WITH_IDP_PARAM;
+			envData.awsimpl0.agent = {};
+			envData.awsimpl0.agent.loginURL = envData.awsimpl0.url + 'marketplace/brokerService';
+			envData.awsimpl0.agent.spnloginURL = envData.awsimpl0.spnUrl + 'marketplace/espBrokerService';
+			envData.awsimpl0.ccr = {};
+			envData.awsimpl0.ccr.tempURL = 'https://sls-app.awsimpl0.healthcare.gov/?ACA=UwDf8YDOTc'; //LOOK INTO COOKIE WITH OSKAR LATER
+			envData.awsimpl0.ccr.linkURL = 'http://10.130.73.198:8080/ee/simulate-ngd';
+			envData.awsimpl0.ccr.loginURL = envData.awsimpl0.url + CCR_LANDING_PAGE_URL_SUFFIX;
+			envData.awsimpl0.de = {};
+			envData.awsimpl0.de.linkURL = getDELink();
+			envData.awsimpl0.de.loginURL = envData.awsimpl0.url + 'marketplace/brokerService/';
+			envData.awsimpl0.de.spnloginURL = envData.awsimpl0.spnUrl + 'marketplace/espBrokerService';
+			envData.awsimpl0.deProxy = {};
+			envData.awsimpl0.deProxy.loginURL = envData.awsimpl0.url +'marketplace/brokerService/';
+			envData.awsimpl0.deProxy.spnloginURL = envData.awsimpl0.spnUrl + 'marketplace/espBrokerService';
+			
+			envData.awsimpl0.ar = {};
+			envData.awsimpl0.ar.linkURL = "";
+			envData.awsimpl0.ar.loginURL = getARLink(envData.awsimpl0.url, STRING_TRUE);
+			envData.awsimpl0.ar.spnloginURL = getARLink(envData.awsimpl0.spnUrl, STRING_TRUE);
+
+
+			//AWS IMPL1b
+			envData.awsimpl1b = {};
+			envData.awsimpl1b.url = 'https://imp1b.healthcare.gov/';
+			envData.awsimpl1b.cookieURL = envData.awsimpl1b.url + '?ACA=dkoWNx0fHl';
+			envData.awsimpl1b.spnUrl = 'https://imp1b.cuidadodesalud.gov/';
+			envData.awsimpl1b.spnCookieURL = envData.awsimpl1b.spnUrl + '?ACA=ZIRFL7tBCR';
+			envData.awsimpl1b.esd = {};
+			envData.awsimpl1b.esd.linkURL = envData.awsimpl1b.url + ESD_LANDING_PAGE_URL_LINK_SUFFIX_WITH_IDP_PARAM;
+			envData.awsimpl1b.agent = {};
+			envData.awsimpl1b.agent.loginURL = envData.awsimpl1b.url + 'marketplace/brokerService';
+			envData.awsimpl1b.agent.spnloginURL = envData.awsimpl1b.spnUrl + 'marketplace/espBrokerService';
+			envData.awsimpl1b.ccr = {};
+			envData.awsimpl1b.ccr.linkURL = 'http://10.130.73.198:8080/ee/simulate-ngd';
+			envData.awsimpl1b.ccr.loginURL = envData.awsimpl1b.url + CCR_LANDING_PAGE_URL_SUFFIX;
+			envData.awsimpl1b.de = {};
+			envData.awsimpl1b.de.linkURL = getDELink();
+			envData.awsimpl1b.de.loginURL = envData.awsimpl1b.url + 'marketplace/brokerService/';
+			envData.awsimpl1b.de.spnloginURL = envData.awsimpl1b.spnUrl + 'marketplace/espBrokerService';
+			envData.awsimpl1b.deProxy = {};
+			envData.awsimpl1b.deProxy.loginURL = envData.awsimpl1b.url +'marketplace/brokerService/';
+			envData.awsimpl1b.deProxy.spnloginURL = envData.awsimpl1b.spnUrl + 'marketplace/espBrokerService';
+			
+			envData.awsimpl1b.ar = {};
+			envData.awsimpl1b.ar.linkURL = "";
+			envData.awsimpl1b.ar.loginURL = getARLink(envData.awsimpl1b.url, STRING_TRUE);
+			envData.awsimpl1b.ar.spnloginURL = getARLink(envData.awsimpl1b.spnUrl, STRING_TRUE);
+
+
+
+
+			//AWS IMPL1A
+			envData.awsimpl1a = {};
+			envData.awsimpl1a.url = 'https://imp1a.healthcare.gov/';
+			envData.awsimpl1a.cookieURL = envData.awsimpl1a.url + '?ACA=gLuSy2iKTb';
+			envData.awsimpl1a.spnUrl = 'https://imp1a.cuidadodesalud.gov/';
+			envData.awsimpl1a.spnCookieURL = envData.awsimpl1a.spnUrl + '?ACA=TH6ujnc5ls';
+			envData.awsimpl1a.esd = {};
+			envData.awsimpl1a.esd.linkURL = envData.awsimpl1a.url + ESD_LANDING_PAGE_URL_LINK_SUFFIX_WITH_IDP_PARAM;
+			envData.awsimpl1a.agent = {};
+			envData.awsimpl1a.agent.loginURL = envData.awsimpl1a.url + 'marketplace/brokerService';
+			envData.awsimpl1a.agent.spnloginURL = envData.awsimpl1a.spnUrl + 'marketplace/espBrokerService';
+			envData.awsimpl1a.ccr = {};
+			envData.awsimpl1a.ccr.linkURL = 'http://10.130.73.198:8080/ee/simulate-ngd';
+			envData.awsimpl1a.ccr.loginURL = envData.awsimpl1a.url + CCR_LANDING_PAGE_URL_SUFFIX;
+			envData.awsimpl1a.de = {};
+			envData.awsimpl1a.de.linkURL = getDELink();
+			envData.awsimpl1a.de.loginURL = envData.awsimpl1a.url + 'marketplace/brokerService/';
+			envData.awsimpl1a.de.spnloginURL = envData.awsimpl1a.spnUrl + 'marketplace/espBrokerService';
+			envData.awsimpl1a.deProxy = {};
+			envData.awsimpl1a.deProxy.loginURL = envData.awsimpl1a.url +'marketplace/brokerService/';
+			envData.awsimpl1a.deProxy.spnloginURL = envData.awsimpl1a.spnUrl + 'marketplace/espBrokerService';
+			
+			envData.awsimpl1a.ar = {};
+			envData.awsimpl1a.ar.linkURL = "";
+			envData.awsimpl1a.ar.loginURL = getARLink(envData.awsimpl1a.url, STRING_TRUE);
+			envData.awsimpl1a.ar.spnloginURL = getARLink(envData.awsimpl1a.spnUrl, STRING_TRUE);
+
+
+
+
+
+
+
+			
+			envData.testpe = {};
+			envData.testpe.url = '';
+			envData.testpe.cookieURL = '';
+			envData.testpe.spnCookieURL = '';
+			envData.testpe.esd = {};
+			envData.testpe.esd.linkURL = '';
+			envData.testpe.agent = {};
+			envData.testpe.agent.loginURL = '';
+			envData.testpe.agent.spnloginURL = '';
+			envData.testpe.ccr = {};
+			envData.testpe.ccr.linkURL = '';
+			envData.testpe.ccr.loginURL = '';
+			envData.testpe.de = {};
+			envData.testpe.de.linkURL = '';
+			envData.testpe.de.loginURL = '';
+			envData.testpe.de.spnloginURL = '';
+			envData.testpe.deProxy = {};
+			envData.testpe.deProxy.loginURL = '';
+			envData.testpe.deProxy.spnloginURL='';
+			
+			function setUpForm(role, environment, flow) {
+				
+				var $esdSteps,
+				$appealsSteps,
+				$agentSteps,
+				$ccrSteps,
+				$deSteps,
+				$deProxySteps,
+				$arSteps;
+				$('#noUI').hide();
+				$('#allSteps > div').hide();
+				
+				if(flow === 'role')
+				{
+					return;
+				}
+				
+				if (role === 'esd') {
+					$esdSteps = $('#esdSteps').show();
+					getUsername(role,environment);
+					$esdSteps.find('#esdLink').attr({href: envData[environment][role].linkURL});
+				} else if (role === 'appeals') {
+					$appealsSteps = $('#appealsSteps').show();
+					getUsername(role,environment);
+					$appealsSteps.find('#appealsLink').attr({href: envData[environment]['esd'].linkURL});
+				} else if (role === 'agent') {
+					$agentSteps = $('#agentSteps').show();
+					$agentSteps.find('#agentForm').attr({action: envData[environment][role].loginURL});
+					$agentSteps.find('#agentSpanishForm').attr({action: envData[environment][role].spnloginURL});
+				} else if (role === 'ccr') {
+					$ccrSteps = $('#ccrSteps').show();
+					$ccrSteps.find('#ccrForm').attr({action: envData[environment][role].loginURL});
+					$ccrSteps.find('#ccrLink').attr({href: envData[environment][role].linkURL});
+				} else if (role === 'de') {
+					$deSteps = $('#deSteps').show();
+					$deSteps.find('#deForm').attr({action: envData[environment][role].loginURL}); // link for POST
+					$deSteps.find('#deSpanishForm').attr({action: envData[environment][role].spnloginURL}); // link for POST
+					$deSteps.find('#deLink').attr({href: envData[environment][role].linkURL}); // link SAML
+				}
+				else if(role === 'deProxy')
+				{
+					$deProxySteps = $('#deProxySteps').show();
+					$deProxySteps.find('#deProxyForm').attr({action: envData[environment][role].loginURL});
+					$deProxySteps.find('#deProxySpanishForm').attr({action: envData[environment][role].spnloginURL});
+				}
+				else if(role === 'ar')
+				{
+					$arSteps = $('#arSteps').show();
+
+					if (environment==='test0' || environment==='test2'|| environment==='test3'|| environment==='eeshoptest0' || environment==='test1' || environment==='awstest2' || environment==='awstest0') {
+						$('.arTest').show();
+						$('.arImpl').hide();
+					} else {
+						$('.arTest').hide();
+						$('.arImpl').show();
+					}
+
+					$arSteps.find('#arFormEnglish').attr({action: envData[environment][role].loginURL});
+					$arSteps.find('#arFormSpanish').attr({action: envData[environment][role].spnloginURL});
+					//$arSteps.find('#arSpanishForm').attr({action: envData[environment][role].spnloginURL});
+				}
+				
+				if(environment === "testpe")
+				{
+					showTestPEInfo();
+				}
+			};
+			
+			/**
+			* Handles the clicks for role and environment links 
+			* e - the click event.
+			*/
+			function clickHandler(e) {
+		 
+				var $role = $('#roleFieldset').find('input:checked'),
+				$environment = $('#environmentFieldset').show().find('input:checked'), 
+				role, environment, flow;
+				
+				//flow will be 'role' or 'environment'
+				flow = e.target.name;
+				
+				if( flow === 'role');
+				{
+					$('#allSteps > div').hide();
+					$('btn-group > radio').attr('selected','');
+					//$('#environmentFieldset > .btn-group > label').removeClass('active')
+				}
+				if ($role.length > 0 && $environment.length > 0) {
+					
+					role = $role.val();
+					environment = $environment.val();
+					setUpForm(role, environment, flow );	
+				}
+			};
+			
+			$('#roleFieldset').find('input').change(clickHandler);
+			$('#environmentFieldset').find('input').change(clickHandler);
+			$('#environmentFieldset').find('input').change(function() {
+				window.open(envData[$(this).val()].cookieURL, "_blank");
+				window.open(envData[$(this).val()].spnCookieURL, "_blank");
+				if ($('#roleFieldset').find('input:checked').val() === "ccr" && $(this).val() === "test1") {
+					window.open(envData[$(this).val()].ccr.tempURL, "_blank");
+				}
+			});
+
+
+			$("#environmentFieldset").find('input').change(setAgentDropdown);
+			$("#ABSubmit").change(setAgentCredentials);
+
+			$("#environmentFieldset").find('input').change(setDEProxyDropdown);
+			$("#deProxySubmit").change(setDEProxyCredentials);
+
+			/**
+			* TESTPE has no UI, show the messaging
+			**/
+			function showTestPEInfo()
+			{
+				$('#allSteps > div').hide();
+				$('#noUI').show();
+				
+			}
+					
+			
+			function setAgentDropdown() {
+				if ($('#roleFieldset').find('input:checked').val() === "agent") {
+					var $env = $('#environmentFieldset').find('input:checked').val();
+					var $ABSubmit = $("#ABSubmit");
+					var $password = $('#agentPassword').empty();
+					var selectedValues;
+					$ABSubmit.html("<option selected disabled> Select username </option>");
+					switch($env) {
+						case "test0":
+						case "test2":
+						case "eeshoptest0":
+						case "test1":
+						case "test3":
+						case "awstest2":
+						case "awstest0":
+							selectValues = ['AB_Test_02','AB_Test_04','AB_Test_05'];
+							break;
+						case "imp0":
+						case "imp1a":
+						case "imp1b":
+						case "imp2":
+                        case "uat0":
+						case "awsimpl0":
+						case "awsimpl2":
+						case "awsimpl1b":
+						case "awsimpl1a":
+							selectValues = ['DEIMPL02', 'AB_Imp_01','AB_Imp_02','AB_Imp_04'];
+							break;
+						default:
+						selectValues = [];
+					}
+					$.each(selectValues, function (key, value) {
+						$ABSubmit.append($('<option>', {value : key}).text(value));
+					});
+				}
+			};
+
+			function setAgentCredentials(event) {
+				event.preventDefault();
+				var $value = $("#ABSubmit option:selected").text();
+				var username, password;
+				var $env = $('#environmentFieldset').find('input:checked').val();
+				if($value !== 'SELECT USERNAME') {
+					$('#agentLink').attr({href: getAgentLink($value, $env)});
+					$('#agentPassword').empty().append(getAgentPassword($value));//, $env));
+				}
+			};
+
+			/**
+			* DE Proxy dropdown - TODO:to update with user IDs
+			**/
+			function setDEProxyDropdown() {
+				if ($('#roleFieldset').find('input:checked').val() === "deProxy") {
+					var $env = $('#environmentFieldset').find('input:checked').val();
+					var $deProxySubmit = $("#deProxySubmit");
+					var $password = $('#agentPassword').empty();
+					var selectedValues;
+					$deProxySubmit.html("<option selected disabled> Select username </option>");
+					switch($env) {
+						case "test0":
+						case "test2":
+						case "eeshoptest0":
+						case "test1":
+						case "test3":
+						case "awstest2":
+						case "awstest0":
+							selectValues = ['deproxy1', 'deproxy2', 'deproxy3','deproxy4','deproxy5','deproxy6','deproxy7','deproxy8','deproxy9','deproxy10', 'AB_Test_01','AB_Test_04', 'IamNotaDEProxyUser@sharklasers.com', 'sec_deproxy_test-01', 'sec_deproxy_test-02', 'sec_deproxy_test-03', 'sec_proxyapprover_test-01' ];
+						break;
+						case "imp0":
+						case "imp1a":
+						case "imp1b":
+						case "imp2":
+						case "uat0":
+						case "awsimpl0":
+						case "awsimpl2":
+						case "awsimpl1b":
+						case "awsimpl1a":
+							selectValues = ['deproxyimp','deproxyimp1', 'deproxyimp2', 'deproxyimp3','deproxyimp4','deproxyimp5','deproxyimpl6','deproxyimpl7','deproxyimpl8','deproxyimpl9','deproxyimpl10','AB_Imp_01','AB_Imp_05', 'IamNotaDEProxyUserIMPL@sharklasers.com', 'sec_deproxy_impl-01', 'sec_deproxy_impl-02', 'sec_deproxy_impl-03', 'sec_proxyapprover_impl-01' ];
+							break;
+						default:
+							selectValues = [];
+					}
+					$.each(selectValues, function (key, value) {
+						$deProxySubmit.append($('<option>', {value : key}).text(value));
+					});
+				}
+			};
+
+			/**
+			* Set Credentials for the DE Proxy User
+			**/
+			function setDEProxyCredentials(event) {
+				event.preventDefault();
+				var $value = $("#deProxySubmit option:selected").text();
+				var username, password;
+				var $env = $('#environmentFieldset').find('input:checked').val();
+				if($value !== 'SELECT USERNAME') {
+					$('#deProxyLink').attr({href: getDEProxyLink($value, $env)});
+					$('#deProxyPassword').empty().append(getDEProxyPassword($value));
+				}
+			};
+
+			/**
+			* Get SAML link for Direct Enrollment Consumer. Note that we pass in a dummy username
+			* TODO: check this, as it may need to be dynamic like the agent one
+			**/
+			function getDELink(){
+				return getSAMLForBrokerService('DEIMPL1B1', "Consumer", "04.ABC.FL*.001.001");
+			};
+
+			function getAgentLink(username, environment) {
+				return getSAMLForBrokerService(username, "Agent" , "04.DEF.MA*.002.002");
+			};
+
+			/**
+			* uses existing Agent URL to broker service. only real update is the UserType.
+			**/
+			function getDEProxyLink(username, environment) {
+				return  getSAMLForBrokerService(username, "DE Proxy", "04.GHI.TN*.003.003");
+			}
+
+			/**
+			* temporarily uses a new param as per Nava for SLS webgate testing
+			**/
+			function getARLink(url, useSaml) {
+				var ARLandingPageExt = "marketplace/auth/ARLandingPage?useSaml=";
+				
+				//temporary marking for SLS/EIDM webgate migration testing
+				ARLandingPageExt += useSaml;
+				
+				console.log('AR page= '+ url + ARLandingPageExt)
+				return url + ARLandingPageExt;
+			}
+
+			/**
+			* Creates request to hit the Broker service; role and userName are dynamic.
+			* it is possible to change the other information ex: the NAMEID is the Partner ID.
+			**/
+			function getSAMLForBrokerService(username, role, partnerID)
+			{
+				return 'http://10.130.73.198:8080/ee/simulate-agent?stateExchangeCode=VA0&partnerAssignedConsumerID=ee-d5ee-11e2-8b8b-0800200c9a66&FFEAssignedConsumerID=&returnURL=http://10.130.73.198:8080/ee/postreturl&userType=' + role+'&FFEUserID=' + username + '&NAMEID='+ partnerID +'&TransferType=Direct%20Enrollment&keepAliveURL=https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png&NPN=12243441&PlanResultsFilter=&firstName=&middleName=&lastName=&suffix=&streetName1=&streetName2=&city=&state=&zipcode=&ssn=&dob=&email=&phonenumber=7034434343';
+			}
+
+			function getUsername(roles,environment) {
+				if (roles === 'esd'){
+					if (environment==='test0' || environment==='test2'|| environment==='test3'|| environment==='eeshoptest0'|| environment==='test1' || environment==='awstest2' || environment==='awstest0')
+					selectValues = ['ESDTest102','ESDTest103', 'ESDTest104'];
+					else
+					selectValues = ['ESDImpl101','ESDImpl102', 'ESDImpl103', 'ESDImpl104','ESDImpl105'];
+					$("#esdTable").find("tr:gt(0)").remove(); //jquery
+					selectValues.forEach(populateESDTable);
+				}
+				else{
+					if (environment==='test0' || environment==='test2'|| environment==='test3'|| environment==='eeshoptest0' || environment==='test1' || environment==='awstest2')
+					selectValues = ['AWTest142', 'AWTest143', 'AWTest144', 'AWTest145'];
+					else
+					selectValues = ['AWImpl142', 'AWImpl143', 'AWImpl144', 'AWImpl145'];
+					$("#awTable").find("tr:gt(0)").remove();
+					selectValues.forEach(populateAWTable);
+				}
+			}
+
+			function populateESDTable(username){
+				var table = document.getElementById("esdTable");
+				var row = table.insertRow(-1); // -1 = last row
+				var cell1 = row.insertCell(0);
+				var cell2 = row.insertCell(1);
+				cell1.innerHTML = username;
+				cell2.innerHTML = getAgentPassword(username);
+			}
+			function populateAWTable(username){
+				var table = document.getElementById("awTable");
+				var row = table.insertRow(-1); // -1 = last row
+				var cell1 = row.insertCell(0);
+				var cell2 = row.insertCell(1);
+				cell1.innerHTML = username;
+				cell2.innerHTML = getAgentPassword(username);
+			}
+
+			function getAgentPassword(username) {//, environment) {
+				if (username){
+					passwordMap = {
+						"DEShop02"   : "Street123#", 	// bad password
+						"DEShop2"    : "Oct1916!@",	// good
+						"DETest01"   : "Oct1916!@",	// MTST borrow
+						"ABTest02"   : "Work123#",		// no permission
+						"ABTestTwo1" : "Oct1916!@",   // no permission
+						"DETestTwo1" : "Acer123#",		// wrong pass
+						"DEIMPL1A1"  : "Word123#",		// bad password
+						"DEIMPL1A3"  : "May0501#",
+						"DEIMPL02"   : "Jan0101#",
+						"ABIMPL02"   : "Micr999#",		// bad password
+						"ABIMPL1B2"  : "Tree123#",  	// no permission
+						// ALL PASSWORD BELOW NEED TO BE UPDATED ON 10/12/2016
+
+						"ESDTest101" : "April2018#",		// ESD Test Credentials
+						"ESDTest102" : "Aug1519#",
+						"ESDTest103" : "Aug1519#",
+						"ESDTest104" : "Aug1519#",
+						"ESDTest125" : "Tree123#",
+						"ESDImpl101" : "Aug1519#",		// ESD IMP Credentials
+						"ESDImpl102" : "Aug1519#",
+						"ESDImpl103" : "Aug1519#",
+						"ESDImpl104" : "Aug1519#",
+						"ESDImpl105" : "Aug1519#",
+//						"AWTest141" : "Apr0419#",	// AW Test Credentials
+						"AWTest142" : "Tree123#",
+						"AWTest143" : "Apr0419#",
+						"AWTest144" : "Apr2118#",
+						"AWTest145" : "July2418#",
+						"AWImpl141" : "Jan0418#",		// AW IMP Credentials
+						"AWImpl142" : "Jun0718#",
+						"AWImpl143" : "Jun0718#",
+						"AWImpl144" : "Jun0718#",
+						"AWImpl145" : "Apr2118#",
+						// NEW AB USERNAME
+						"AB_Imp_01" : "Sep0619#", //make sure to update AB passwords when getDEProxyPassword() is updated
+						"AB_Imp_02" : "Sep0619#",
+					//	"AB_Imp_03" : "Jan0101#",
+						"AB_Imp_04" : "Sep0619#",
+					//	"AB_Imp_05" : "Dec1018#", //make sure to update AB passwords when getDEProxyPassword() is updated
+						"AB_Test_01" : "July2418#", //make sure to update AB passwords when getDEProxyPassword() is updated
+						"AB_Test_02" : "June1519#",
+						"AB_Test_03" : "Dec1221#",
+						"AB_Test_04" : "June1519#", //make sure to update AB passwords when getDEProxyPassword() is updated
+						"AB_Test_05" : "June1519#",
+
+						"AppTestTP1" : "June0613#" // what is this?
+					};
+					return passwordMap[username];
+				}
+			};
+
+			/**
+			* Get the DE Proxy user password.
+			* TODO: update with info
+			**/
+			function getDEProxyPassword(username) {
+				if (username){
+					passwordMap = {
+						"deproxy1" : "Test@4321",
+						"deproxy2" : "Test@4321",
+						"deproxy3" : "Test@4321",
+						"deproxy4" : "Test@4321",
+						"deproxy5" : "Test@4321",
+						"deproxy6" : "Test@4321",
+						"deproxy7" : "Test@4321",
+						"deproxy8" : "Test@4321",
+						"deproxy9" : "Test@4321",
+						"deproxy10" : "Test@4321",
+						"sec_deproxy_test-01" : "Test@1234!",
+						"sec_deproxy_test-02" : "Test@1234",
+						"sec_deproxy_test-03" : "Test@1234",
+						"sec_proxyapprover_test-01" : "Test@1234",
+						"deproxyimp" : "Test@1234",
+						"deproxyimp1" : "Test@4321",
+						"deproxyimp2" : "Test@4321",
+						"deproxyimp3" : "Test@4321",
+						"deproxyimp4" : "Test@4321",
+						"deproxyimp5" : "Test@4321",
+						"deproxyimpl6" : "Test@4321",
+						"deproxyimpl7" : "Test@4321",
+						"deproxyimpl8" : "Test@4321",
+						"deproxyimpl9" : "Test@4321",
+						"deproxyimpl10" : "Test@4321",
+						"sec_deproxy_impl-01" : "Test@1234",
+						"sec_deproxy_impl-02" : "Test@1234",
+						"sec_deproxy_impl-02" : "Test@1234",
+						"sec_proxyapprover_impl-01" : "Test@1234",
+						"AB_Test_01" : "Aug0829#", //make sure to update AB passwords when getAgentPassword() is updated
+						"AB_Test_04" : "Oct1025#", //make sure to update AB passwords when getAgentPassword() is updated
+						"AB_Imp_01" : "Oct2317#", //make sure to update AB passwords when getAgentPassword() is updated
+						"AB_Imp_05" : "Oct2317#", //make sure to update AB passwords when getAgentPassword() is updated
+						"IamNotaDEProxyUser@sharklasers.com" : "thisPass01", //these 2 are consumer users
+						"IamNotaDEProxyUserIMPL@sharklasers.com" : "thisPass01"
+					};
+					return passwordMap[username];
+				}
+			};
+		});
+	</script>
+
+
+</body>
+<!-- Ben updating cookies for aws imp1a and aws impl2 -->
+<!-- Ben changing cookies for test/awstest0-->
+<!-- Kevin Adding AWS Impl2 button - URL has no "aws-" due to akamai cutover-->
+<!-- Ben updated ESD passwords for IMPL 04-10-2019-->
+<!-- Ben added awsimpl1a to the roles file 04-02-2019-->
+<!-- Kex added awsimpl1b to the roles file 03-15-2019-->
+<!-- Kex added awsimpl0 to the roles file 03-08-2019-->
+<!-- Kex fix AWS test0 AR EIDM link issue--> 
+<!-- James added awsimpl2 and awstest0 to the roles file 12-15-2018-->
+<!-- James merged the AWS2 roles file with the original 10-25-2018-->
+<!-- Tom made updates to support aws ee test2 9-26-2018-->
+<!-- James updates - Modified the AWS env button and removed AW role button - 9-26-2018-->
+<!-- Kex updates password to ESDTest102, ESDTest103, and ESDTest104-->
+<!-- Kex made updates to set AWS.TEST1 – CCR cookie only-->
+<!-- 7/24/2018 made password updates for AB_Test_01 and  AWTest145 -->
+<!-- Kex made updates to ESD URL for IMPL2 IMPL1B, and UAT0 environment-->
+<!-- Kex made updates to ESD URL for Test environment-->
+<!-- Oskar made updates to support aws ee test1 -->
+<!--7/12 AR user, ESD user login updated for UAT0 -->
+<!--7/11/2018 Updated ESD links for Test0 and Test2, updated AR links handling, and update RestapiEidm104, RestapiEidm105, RestapiEidm103  TEST, RestapiEidm101 TEST, password -->
+<!--7/10/2018 STV: worked with George to update RestapiEidm104 password -->
+<!-- 7/09/2018 STV; updated ESDTest103 password. Updated ESD links for TEST3, EESHOPTEST0, IMPL2. Updated CCR and ESD links to be more uniform-->
+<!-- 7/03/2018 Shannon: updated ESDTest102 password-->
+<!-- 6/29/2018 Updating links for AR testing in TEST old: https://portaldev.cms.cmstest/ NEW: https://portaldev.cms.gov/).
+updated AR link to use flag from Nava. revised text for *, revised some TESTPE handling  -->
+<!-- 6/28/2018 added Seema's change for password update for AB_Imp_01, added password update for RestapiEidm102-->
+<!-- 6/27/2018 removed TESTPE, it has NO UI, restored items steve Added. James added updated password for ABTest03 -->
+<!-- 6/26/2018 Shrey added UAT0 items, adding AWSTEST1, TESTPE-->
+<!-- 6/13/2018 updating to add new mock user for a/b for R46.0 for MAPs-18 / FFMEEASDLC-3668 -->
+<!-- TODO: refactor this to be cleaner and easier to update-->
+<!--9/13/2017 Added missing usernames for Security ex: sec_proxyapprover_impl-01,sec_proxyapprover_test-01   -->
+<!--9/13/2017 updated implb broker service and ccr link from test to IMPl2)-->
+<!--8/23/2017 updated impl2 broker service and ccr link from test to IMPl2)-->
+<!-- 8/19 updated Agent password -->
+<!-- August 2017 Andrew ADDED AR role-->
+<!--Steve: added DE proxy section, AR placeholder. added A/B roles for DE Proxy-->
+
+</html>
