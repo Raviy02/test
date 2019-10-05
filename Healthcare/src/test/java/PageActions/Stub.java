@@ -59,7 +59,6 @@ public class Stub {
 
 	public static void initCCR() {
 		String url = "file:///" + System.getProperty("user.dir") + "/src/test/resources/HTML files/Roles0910.html";
-		System.out.println(url);
 		CUtil.OpenBrowser(url);
 		if (!flag) {
 			CUtil.setMainWindow(driver.getWindowHandle());
