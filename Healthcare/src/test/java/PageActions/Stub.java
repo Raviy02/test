@@ -31,6 +31,8 @@ public class Stub {
 		CUtil.OpenBrowser(url);
 		if (!flag) {
 			CUtil.setMainWindow(driver.getWindowHandle());
+			System.out.println("inside if");
+			flag = false;
 		}
 		CUtil.waitForClickableElement(By.xpath("//*[@id='esdRole']"));
 		CUtil.click(By.xpath("//*[@id='esdRole']"));
@@ -45,7 +47,8 @@ public class Stub {
 			e.printStackTrace();
 		}
 		CUtil.click(By.xpath("//a[text()='Go to ESD']"));
-		CUtil.switchToWindow("window3");
+		CUtil.switchToWindow("window1");
+		System.out.println();
 		CUtil.waitForVisibleElement(By.xpath("//*[@id='acceptButton']"));
 		CUtil.click(By.xpath("//*[@id='acceptButton']"));
 		CUtil.waitForVisibleElement(By.xpath("//*[@name='username']"));

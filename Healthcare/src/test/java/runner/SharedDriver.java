@@ -25,11 +25,13 @@ public class SharedDriver extends EventFiringWebDriver {
 	private static final WebDriver REAL_DRIVER;
 	private static boolean takenScreenshot = false;
 
-	/*
-	 * private static final Thread CLOSE_THREAD = new Thread() {
-	 * 
-	 * @Override public void run() { REAL_DRIVER.quit(); } };
-	 */
+	private static final Thread CLOSE_THREAD = new Thread() {
+
+		@Override
+		public void run() {
+			REAL_DRIVER.quit();
+		}
+	};
 
 	static {
 		String browser = System.getProperty("browser");
@@ -69,7 +71,7 @@ public class SharedDriver extends EventFiringWebDriver {
 		}
 		// implicit wait set up
 		REAL_DRIVER.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		// Runtime.getRuntime().addShutdownHook(CLOSE_THREAD);
+		Runtime.getRuntime().addShutdownHook(CLOSE_THREAD);
 	}
 
 	public SharedDriver() {
@@ -78,12 +80,15 @@ public class SharedDriver extends EventFiringWebDriver {
 		CUtil.setWebDriver(REAL_DRIVER);
 	}
 
-	/*
-	 * @Override public void close() { if (Thread.currentThread() != CLOSE_THREAD) {
-	 * throw new UnsupportedOperationException(
-	 * "You shouldn't close this WebDriver. It's shared and will close when the JVM exits."
-	 * ); } super.close(); }
-	 */
+	@Override
+	public void close() {
+		if (Thread.currentThread() != CLOSE_THREAD) {
+			throw new UnsupportedOperationException(
+					"You shouldn't close this WebDriver. It's shared and will close when the JVM exits.");
+		}
+		super.close();
+	}
+
 	@Before
 	/**
 	 * Delete all cookies at the start of each scenario to avoid shared state
@@ -96,12 +101,14 @@ public class SharedDriver extends EventFiringWebDriver {
 	@AfterStep
 	public void embedScreenshotOnFailuer(Scenario scenario) {
 		scenario.write("Current Page URL is " + getCurrentUrl());
-		try {
-			byte[] screenshot = getScreenshotAs(OutputType.BYTES);
-			scenario.embed(screenshot, "image/png");
-			takenScreenshot = true;
-		} catch (WebDriverException somePlatformsDontSupportScreenshots) {
-			System.err.println(somePlatformsDontSupportScreenshots.getMessage());
+		if (scenario.isFailed()) {
+			try {
+				byte[] screenshot = getScreenshotAs(OutputType.BYTES);
+				scenario.embed(screenshot, "image/png");
+				takenScreenshot = true;
+			} catch (WebDriverException somePlatformsDontSupportScreenshots) {
+				System.err.println(somePlatformsDontSupportScreenshots.getMessage());
+			}
 		}
 	}
 

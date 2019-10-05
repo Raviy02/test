@@ -163,7 +163,7 @@ Scenario: OnePerson_FA
 	When I click Save button on Incarceration release Page
 	Then I should be on User's incarceration release Page
 	When I type month as "09" on User's incarceration release Page
-	When I type day as "01" on User's incarceration release Page
+	When I type day as "15" on User's incarceration release Page
 	When I type year as "2019" on User's incarceration release Page
 	When I click Save button on User's incarceration release Page
 	Then I should be on Review your application Page
