@@ -68,7 +68,7 @@ public class CreateAccountActions {
 	}
 
 	public void clickCreateAccount() {
-		CUtil.actionClick(By.xpath("//*[contains(text(),'Create account')]"));
+		CUtil.clickSelenium(By.xpath("//*[contains(text(),'Create account')]"));
 		CUtil.waitForElement(By.xpath("//div[@class='click-cover']"));
 	}
 
