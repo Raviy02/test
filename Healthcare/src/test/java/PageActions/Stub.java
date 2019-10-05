@@ -16,6 +16,7 @@ public class Stub {
 
 	public static void init() {
 		String url = "file:///" + System.getProperty("user.dir") + "/src/test/resources/HTML files/Environments.html";
+		System.out.println(url);
 		CUtil.OpenBrowser(url);
 		CUtil.waitForClickableElement(By.xpath("//a[contains(@href,'" + System.getProperty("environment") + "')]"));
 		CUtil.click(By.xpath("//a[contains(@href,'" + System.getProperty("environment") + "')]"));
@@ -27,6 +28,7 @@ public class Stub {
 	public static void initESD() {
 		String url = "file:///" + System.getProperty("user.dir")
 				+ "/src/test/resources/HTML files/Environments%20(3).html";
+		System.out.println(url);
 		CUtil.OpenBrowser(url);
 		if (!flag) {
 			CUtil.setMainWindow(driver.getWindowHandle());
@@ -59,6 +61,7 @@ public class Stub {
 	public static void initCCR() {
 		String url = "file:///" + System.getProperty("user.dir")
 				+ "/src/test/resources/HTML files/Environments%20(3).html";
+		System.out.println(url);
 		CUtil.OpenBrowser(url);
 		if (!flag) {
 			CUtil.setMainWindow(driver.getWindowHandle());
