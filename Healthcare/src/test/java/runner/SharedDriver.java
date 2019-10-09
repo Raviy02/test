@@ -66,6 +66,7 @@ public class SharedDriver extends EventFiringWebDriver {
 			chromeoptions.addArguments("--disable-browser-side-navigation");
 			chromeoptions.addArguments("--disable-gpu");
 			chromeoptions.setAcceptInsecureCerts(true);
+			chromeoptions.setBinary("C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe");
 			REAL_DRIVER = new ChromeDriver(chromeoptions);
 			break;
 		}
