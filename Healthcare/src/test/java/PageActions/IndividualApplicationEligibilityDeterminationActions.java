@@ -49,7 +49,7 @@ public class IndividualApplicationEligibilityDeterminationActions {
 		} else {
 			text = "\'" + text + "\'";
 		}
-		CUtil.waitForElement(By.xpath("//*[text()=" + text + "]"));
+		// CUtil.waitForElement(By.xpath("//*[text()=" + text + "]"));
 		return CUtil.isDisplayed(By.xpath("//*[text()=" + text + "]"));
 	}
 
