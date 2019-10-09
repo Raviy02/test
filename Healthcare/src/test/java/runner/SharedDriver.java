@@ -59,7 +59,8 @@ public class SharedDriver extends EventFiringWebDriver {
 		case "CHROME":
 		default:
 			ChromeOptions chromeoptions = new ChromeOptions();
-			System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver_Win.exe");
+			// System.setProperty("webdriver.chrome.driver",
+			// "src/test/resources/drivers/chromedriver_Win.exe");
 			chromeoptions.addArguments("--start-maximized");
 			chromeoptions.setPageLoadStrategy(PageLoadStrategy.NONE);
 			chromeoptions.addArguments("--incognito");
