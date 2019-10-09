@@ -53,7 +53,7 @@
 							</includes>
 							<testFailureIgnore>true</testFailureIgnore>
 							<systemPropertyVariables>
-								<browser>chrome</browser>
+								<browser>Grid</browser>
 								<environment>test3</environment>
 							</systemPropertyVariables>
 						</configuration>

@@ -9,6 +9,7 @@ import org.openqa.selenium.PageLoadStrategy;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
@@ -55,6 +56,32 @@ public class SharedDriver extends EventFiringWebDriver {
 			ffoptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
 			REAL_DRIVER = new FirefoxDriver(ffoptions);
 			break;
+		case "Grid":
+
+			ChromeOptions chromeoptions1 = new ChromeOptions();
+			System.setProperty("webdriver.chrome.driver",
+					"C:/Program Files (x86)/Jenkins/tools/chromedriver/chromedriver.exe");
+			DesiredCapabilities d = DesiredCapabilities.chrome();
+			d.setBrowserName("chrome");
+			d.setPlatform(Platform.WINDOWS);
+			chromeoptions1.setPageLoadStrategy(PageLoadStrategy.NONE);
+			chromeoptions1.addArguments("start-maximized");
+			chromeoptions1.addArguments("enable-automation");
+			// options.addArguments("--headless");
+			chromeoptions1.addArguments("--no-sandbox");
+			chromeoptions1.addArguments("--disable-infobars");
+			chromeoptions1.addArguments("--disable-dev-shm-usage");
+			chromeoptions1.addArguments("--disable-browser-side-navigation");
+			chromeoptions1.addArguments("--disable-gpu");
+			chromeoptions1.setAcceptInsecureCerts(true);
+			chromeoptions1.merge(d);
+			try {
+				REAL_DRIVER = new RemoteWebDriver(new URL("http://172.31.0.209:4444/wd/hub"), chromeoptions1);
+
+			} catch (MalformedURLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		case "chrome":
 		case "CHROME":
 		default:
@@ -71,19 +98,18 @@ public class SharedDriver extends EventFiringWebDriver {
 			chromeoptions.addArguments("--disable-gpu");
 			chromeoptions.setAcceptInsecureCerts(true);
 			chromeoptions.setBinary("C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe");
-			DesiredCapabilities capability = DesiredCapabilities.chrome();
-			capability.setBrowserName("chrome");
-			capability.setPlatform(Platform.WINDOWS);
-			chromeoptions.merge(capability);
+			/*
+			 * DesiredCapabilities capability = DesiredCapabilities.chrome();
+			 * capability.setBrowserName("chrome");
+			 * capability.setPlatform(Platform.WINDOWS); chromeoptions.merge(capability);
+			 * 
+			 * try { REAL_DRIVER = new RemoteWebDriver(new
+			 * URL("http://172.31.0.209:4444/wd/hub"), chromeoptions); } catch
+			 * (MalformedURLException e) { // TODO Auto-generated catch block
+			 * e.printStackTrace(); }
+			 */
 
-			try {
-				REAL_DRIVER = new RemoteWebDriver(new URL("http://172.31.0.209:4444/wd/hub"), chromeoptions);
-			} catch (MalformedURLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
-			// REAL_DRIVER = new ChromeDriver(chromeoptions);
+			REAL_DRIVER = new ChromeDriver(chromeoptions);
 			break;
 		}
 		// implicit wait set up
