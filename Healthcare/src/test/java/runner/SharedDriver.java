@@ -1,17 +1,21 @@
 package runner;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.PageLoadStrategy;
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.firefox.internal.ProfilesIni;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import CommonUtils.CUtil;
@@ -22,7 +26,7 @@ import cucumber.api.java.Before;
 
 public class SharedDriver extends EventFiringWebDriver {
 
-	private static final WebDriver REAL_DRIVER;
+	private static WebDriver REAL_DRIVER;
 	private static boolean takenScreenshot = false;
 
 	private static final Thread CLOSE_THREAD = new Thread() {
@@ -67,11 +71,23 @@ public class SharedDriver extends EventFiringWebDriver {
 			chromeoptions.addArguments("--disable-gpu");
 			chromeoptions.setAcceptInsecureCerts(true);
 			chromeoptions.setBinary("C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe");
-			REAL_DRIVER = new ChromeDriver(chromeoptions);
+			DesiredCapabilities capability = DesiredCapabilities.chrome();
+			capability.setBrowserName("chrome");
+			capability.setPlatform(Platform.WINDOWS);
+			chromeoptions.merge(capability);
+
+			try {
+				REAL_DRIVER = new RemoteWebDriver(new URL("http://172.31.0.209:4444/wd/hub"), chromeoptions);
+			} catch (MalformedURLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			// REAL_DRIVER = new ChromeDriver(chromeoptions);
 			break;
 		}
 		// implicit wait set up
-		REAL_DRIVER.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		REAL_DRIVER.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 		Runtime.getRuntime().addShutdownHook(CLOSE_THREAD);
 	}
 
