@@ -119,7 +119,7 @@ public class IndividualApplicationEligibilityDeterminationActions {
 	}
 
 	public void clickEnrollButton() {
-		CUtil.waitForVisibleElement(By.xpath("//a[text()='Enroll']"));
+		// CUtil.waitForVisibleElement(By.xpath("//a[text()='Enroll']"));
 		CUtil.click(By.xpath("//a[text()='Enroll']"));
 	}
 
