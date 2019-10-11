@@ -114,8 +114,8 @@ public class IndividualApplicationEligibilityDeterminationActions {
 	}
 
 	public void clickApplyFiltersButton() {
-		CUtil.waitForVisibleElement(By.xpath("//button[@id='premium-filter-tag']"));
-		CUtil.click(By.xpath("//button[text()='Apply filters']"));
+		CUtil.waitForVisibleElement(By.xpath("//button[contains(@class,'pet-c-range-field__button')]"));
+		CUtil.click(By.xpath("//button[contains(@class,'pet-c-range-field__button')]"));
 	}
 
 	public void clickEnrollButton() {
