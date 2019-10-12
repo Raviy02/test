@@ -25,7 +25,7 @@ Scenario: OnePerson_NFA
 	When I type UserName 
 	And I type Password as "Test123#" on Login Page 
 	And I click on Login button 
-	Then I should be on MarketPlace Page 
+	#Then I should be on MarketPlace Page 
 	When I click on User Profile option 
 	And I click on My Profile Option 
 	Then I should be on My Profile Page 
@@ -189,13 +189,17 @@ Scenario: OnePerson_NFA
 	Then I should see the Status as "Review your health plan choices"
 	When I select option as "No, complete health plan enrollment." for dentail plan
 	And I click on Continue button
-	Then I should see the Status as "Read & agree with this statement to continue"
-	When I Accept agreement for selected plan
-	And I click on Continue button
-	When I Accept agreement for selected plan
-	And I type Tax filer's signature (full name) as "Susan Griffith"
-	And I click on Continue button
+	#Then I should see the Status as "Read & agree with this statement to continue"
+	#When I Accept agreement for selected plan
+	#And I click on Continue button
+	#When I Accept agreement for selected plan
+	#And I type Tax filer's signature (full name) as "Susan Griffith"
+	#And I click on Continue button
 	Then I should see the Status as "You're almost done"
+	
+	
+	
+
 	
 	
 	
