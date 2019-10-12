@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 import PageActions.PreferredLanguageActions;
@@ -18,7 +19,15 @@ public class PreferredLanguagePageSteps {
 
 	@Then("I should be on Preferred Language Page")
 	public void i_should_be_on_Preferred_Language_Page() {
-		PreferredLanguageActions.verifyPageTitle("Contact information");
+		String lang = System.getProperty("language");
+		String text = "";
+		if (lang.equalsIgnoreCase("english")) {
+			text = "Preferred language";
+		} else if (lang.equalsIgnoreCase("spanish")) {
+			text = "¿Cuál es su idioma preferido?";
+		}
+		Assert.assertTrue(PreferredLanguageActions.verifyPageTitle(text));
+		// PreferredLanguageActions.verifyPageTitle("Contact information");
 	}
 
 	@When("I select Preferred written language as {string}")

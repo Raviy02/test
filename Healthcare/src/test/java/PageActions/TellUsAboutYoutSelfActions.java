@@ -13,8 +13,8 @@ public class TellUsAboutYoutSelfActions {
 		this.driver = driver;
 	}
 
-	public static void verifyPageTitle(String text) {
-		CUtil.waitUtilAtNextPage(text);
+	public static boolean verifyPageTitle(String text) {
+		return CUtil.waitUtilAtNextPage(text);
 	}
 
 	public static void typeMonth(String text) {
@@ -42,7 +42,7 @@ public class TellUsAboutYoutSelfActions {
 
 	public static void clickSave() {
 		CUtil.waitForPageLoad();
-		CUtil.click(By.xpath("//*[text()='Save & continue']"));
+		CUtil.click(By.xpath("//button[@class='ds-c-button ds-c-button--primary ds-u-margin-top--4']"));
 	}
 
 	public void typeFirstName(String text) {

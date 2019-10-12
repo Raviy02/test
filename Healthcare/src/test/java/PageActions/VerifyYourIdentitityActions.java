@@ -12,12 +12,12 @@ public class VerifyYourIdentitityActions {
 		this.driver = driver;
 	}
 
-	public static void verifyPageTitle(String text) {
-		CUtil.waitUtilAtNextPage(text);
+	public static boolean verifyPageTitle(String text) {
+		return CUtil.waitUtilAtNextPage(text);
 	}
 
 	public static void clickGetStarted() {
-		CUtil.click(By.xpath("//*[text()='Get started']"));
+		CUtil.click(By.xpath("//button[contains(@class,'goToIDProofContactInfo')]"));
 	}
 
 }

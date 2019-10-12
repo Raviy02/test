@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 import PageActions.ContactPreferencesActions;
@@ -19,7 +20,15 @@ public class ContactPreferencesPageSteps {
 
 	@Then("I should be on Contact preferences Page")
 	public void i_should_be_on_Contact_preferences_Page() {
-		ContactPreferencesActions.verifyPageTitle("Contact preferences");
+		String lang = System.getProperty("language");
+		String text = "";
+		if (lang.equalsIgnoreCase("english")) {
+			text = "Contact preferences";
+		} else if (lang.equalsIgnoreCase("spanish")) {
+			text = "Díganos cómo le gustaría ser contactado";
+		}
+		Assert.assertTrue(ContactPreferencesActions.verifyPageTitle(text));
+		// ContactPreferencesActions.verifyPageTitle("Contact preferences");
 	}
 
 	@When("I Select Contact preference as {string}")

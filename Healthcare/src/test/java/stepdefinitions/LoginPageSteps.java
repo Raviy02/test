@@ -25,8 +25,14 @@ public class LoginPageSteps {
 
 	@Given("I navigate to Login Page")
 	public void i_navigate_to_Login_Page() {
+		String language = System.getProperty("language");
 		LandingPageActions.openLandingPage();
-		LandingPageActions.verifyPageTitle("Health Insurance Marketplace for Individuals | HealthCare.gov");
+		if (language.equals("English")) {
+			LandingPageActions.verifyPageTitle("Health Insurance Marketplace for Individuals | HealthCare.gov");
+		} else if (language.equals("Spanish")) {
+			LandingPageActions.verifyPageTitle(
+					"Obtenga ahora la cobertura médica para el 2020. | Mercado de Seguros Médicos | HealthCare.gov");
+		}
 		RandonEmailActions.generateRandomEmailId();
 		CUtil.email = RandonEmailActions.recordEmailId();
 		System.out.println(CUtil.email + " " + "//////////");

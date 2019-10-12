@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 import PageActions.StartApplicationActions;
@@ -19,7 +20,15 @@ public class StartApplicationPageSteps {
 
 	@Then("I should be on Start Application page")
 	public void i_should_be_on_Start_Application_page() {
-		StartApplicationActions.verifyPageTitle("Start Application");
+		String lang = System.getProperty("language");
+		String text = "";
+		if (lang.equalsIgnoreCase("english")) {
+			text = "Start Application";
+		} else if (lang.equalsIgnoreCase("spanish")) {
+			text = "Empezar Solicitud";
+		}
+		Assert.assertTrue(StartApplicationActions.verifyPageTitle(text));
+		// StartApplicationActions.verifyPageTitle("Start Application");
 	}
 
 	@When("I click on Next button on Start Application page")

@@ -12,8 +12,8 @@ public class IdentityQuestionsActions {
 		this.driver = driver;
 	}
 
-	public static void verifyPageTitle(String text) {
-		CUtil.waitUtilAtNextPage(text);
+	public static boolean verifyPageTitle(String text) {
+		return CUtil.waitUtilAtNextPage(text);
 	}
 
 	public static void answerAllQuestions(String text) {
@@ -29,7 +29,7 @@ public class IdentityQuestionsActions {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		CUtil.click(By.xpath("//button[text()='CONTINUE'][contains(@class,'goToIDProofResults')]"));
+		CUtil.click(By.xpath("//button[contains(@class,'goToIDProofResults')]"));
 	}
 
 }

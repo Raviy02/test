@@ -189,17 +189,13 @@ Scenario: OnePerson_NFA
 	Then I should see the Status as "Review your health plan choices"
 	When I select option as "No, complete health plan enrollment." for dentail plan
 	And I click on Continue button
-	#Then I should see the Status as "Read & agree with this statement to continue"
-	#When I Accept agreement for selected plan
-	#And I click on Continue button
-	#When I Accept agreement for selected plan
-	#And I type Tax filer's signature (full name) as "Susan Griffith"
-	#And I click on Continue button
+	Then I should see the Status as "Read & agree with this statement to continue"
+	When I Accept agreement for selected plan
+	And I click on Continue button
+	When I Accept agreement for selected plan
+	And I type Tax filer's signature (full name) as "Susan Griffith"
+	And I click on Continue button
 	Then I should see the Status as "You're almost done"
-	
-	
-	
-
 	
 	
 	

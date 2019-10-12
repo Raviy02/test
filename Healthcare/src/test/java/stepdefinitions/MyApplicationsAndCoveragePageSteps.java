@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 import PageActions.MyApplicationsAndCoverageActions;
@@ -19,7 +20,16 @@ public class MyApplicationsAndCoveragePageSteps {
 
 	@Then("I should be on My Applications & Coverage Page")
 	public void i_should_be_on_My_Applications_Coverage_Page() {
-		MyApplicationsAndCoverageActions.verifyPageTitle("My Applications & Coverage");
+		String lang = System.getProperty("language");
+		String text = "";
+		if (lang.equalsIgnoreCase("english")) {
+			text = "My Applications & Coverage";
+		} else if (lang.equalsIgnoreCase("spanish")) {
+			text = "Mis Solicitudes y Cobertura";
+		}
+		Assert.assertTrue(MyApplicationsAndCoverageActions.verifyPageTitle(text));
+		// MyApplicationsAndCoverageActions.verifyPageTitle("My Applications &
+		// Coverage");
 	}
 
 	@When("I select Year as {string} on My Applications & Coverage Page")

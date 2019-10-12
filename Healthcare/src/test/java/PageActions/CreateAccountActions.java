@@ -20,23 +20,23 @@ public class CreateAccountActions {
 	}
 
 	public void enterFirstName(String text) {
-		CUtil.type(By.xpath("//*[contains(@id,'First-name')]"), text);
+		CUtil.type(By.xpath("//*[@name='firstName']"), text);
 	}
 
 	public void enterLastName(String text) {
-		CUtil.type(By.xpath("//*[contains(@id,'Last-name')]"), text);
+		CUtil.type(By.xpath("//*[@name='lastName']"), text);
 	}
 
 	public void enterEmailId(String text) {
-		CUtil.type(By.xpath("//*[contains(@id,'Email-address')]"), text);
+		CUtil.type(By.xpath("//*[@name='email']"), text);
 	}
 
 	public void enterPassword(String text) {
-		CUtil.type(By.xpath("//*[contains(@id,'Password')]"), text);
+		CUtil.type(By.xpath("//*[@name='password']"), text);
 	}
 
 	public void reEnterPassword(String text) {
-		CUtil.type(By.xpath("//*[contains(@id,'Retype-password')]"), text);
+		CUtil.type(By.xpath("//*[@name='confirmPassword']"), text);
 	}
 
 	public void pickFirstQuestion(String text) {
@@ -68,12 +68,18 @@ public class CreateAccountActions {
 	}
 
 	public void clickCreateAccount() {
-		CUtil.clickSelenium(By.xpath("//*[contains(text(),'Create account')]"));
+		CUtil.clickSelenium(By.xpath("//button[@class='btn btn-lg btn-submit btn-success']"));
 		CUtil.waitForElement(By.xpath("//div[@class='click-cover']"));
 	}
 
 	public boolean isAtThisPage() {
-		return CUtil.isDisplayed(By.xpath("//h1[text()='Create an account']"));
+		String language = System.getProperty("language");
+		if (language.equalsIgnoreCase("English")) {
+			return CUtil.isDisplayed(By.xpath("//h1[text()='Create an account']"));
+		} else if (language.equalsIgnoreCase("spanish")) {
+			return CUtil.isDisplayed(By.xpath("//h1[text()='Cree una cuenta']"));
+		}
+		return false;
 	}
 
 }

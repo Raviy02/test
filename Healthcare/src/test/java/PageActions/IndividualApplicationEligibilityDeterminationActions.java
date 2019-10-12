@@ -49,7 +49,7 @@ public class IndividualApplicationEligibilityDeterminationActions {
 		} else {
 			text = "\'" + text + "\'";
 		}
-		// CUtil.waitForElement(By.xpath("//*[text()=" + text + "]"));
+		CUtil.waitForElement(By.xpath("//*[text()=" + text + "]"));
 		return CUtil.isDisplayed(By.xpath("//*[text()=" + text + "]"));
 	}
 
@@ -114,12 +114,12 @@ public class IndividualApplicationEligibilityDeterminationActions {
 	}
 
 	public void clickApplyFiltersButton() {
-		CUtil.waitForVisibleElement(By.xpath("//button[contains(@class,'pet-c-range-field__button')]"));
-		CUtil.click(By.xpath("//button[contains(@class,'pet-c-range-field__button')]"));
+		CUtil.waitForVisibleElement(By.xpath("//button[@id='premium-filter-tag']"));
+		CUtil.click(By.xpath("//button[text()='Apply filters']"));
 	}
 
 	public void clickEnrollButton() {
-		// CUtil.waitForVisibleElement(By.xpath("//a[text()='Enroll']"));
+		CUtil.waitForVisibleElement(By.xpath("//a[text()='Enroll']"));
 		CUtil.click(By.xpath("//a[text()='Enroll']"));
 	}
 

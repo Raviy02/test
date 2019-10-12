@@ -55,6 +55,7 @@
 							<systemPropertyVariables>
 								<browser>chrome</browser>
 								<environment>test3</environment>
+								<language>english</language>
 							</systemPropertyVariables>
 						</configuration>
 					</execution>

@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 import PageActions.TellUsAboutYoutSelfActions;
@@ -19,7 +20,15 @@ public class TellUsAboutYourselfPageSteps {
 
 	@Then("I should be on Tell us about yourself Page")
 	public void i_should_be_on_Tell_us_about_yourself_Page() {
-		TellUsAboutYoutSelfActions.verifyPageTitle("Tell us about yourself");
+		String lang = System.getProperty("language");
+		String text = "";
+		if (lang.equalsIgnoreCase("english")) {
+			text = "Tell us about yourself";
+		} else if (lang.equalsIgnoreCase("spanish")) {
+			text = "Díganos sobre usted";
+		}
+		Assert.assertTrue(TellUsAboutYoutSelfActions.verifyPageTitle(text));
+		// TellUsAboutYoutSelfActions.verifyPageTitle("Tell us about yourself");
 	}
 
 	@When("I type month as {string}")

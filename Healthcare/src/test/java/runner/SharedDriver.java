@@ -1,12 +1,9 @@
 package runner;
 
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.PageLoadStrategy;
-import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -15,8 +12,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.firefox.internal.ProfilesIni;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 import CommonUtils.CUtil;
@@ -27,16 +22,20 @@ import cucumber.api.java.Before;
 
 public class SharedDriver extends EventFiringWebDriver {
 
-	private static WebDriver REAL_DRIVER;
+	private static final WebDriver REAL_DRIVER;
 	private static boolean takenScreenshot = false;
 
-	private static final Thread CLOSE_THREAD = new Thread() {
-
-		@Override
-		public void run() {
-			REAL_DRIVER.quit();
-		}
-	};
+	/*
+	 * private static final Thread CLOSE_THREAD = new Thread() {
+	 * 
+	 * @Override public void run() { REAL_DRIVER.quit(); try {
+	 * Runtime.getRuntime().exec("taskkill /F /IM chromedriver_Win.exe /T");
+	 * Runtime.getRuntime().exec("taskkill /F /IM geckodriver_Win.exe /T");
+	 * Runtime.getRuntime().exec("taskkill /F /IM Microsoft Edge.exe /T"); } catch
+	 * (IOException e) { // TODO Auto-generated catch block e.printStackTrace();
+	 * 
+	 * } } };
+	 */
 
 	static {
 		String browser = System.getProperty("browser");
@@ -56,32 +55,6 @@ public class SharedDriver extends EventFiringWebDriver {
 			ffoptions.setPageLoadStrategy(PageLoadStrategy.NORMAL);
 			REAL_DRIVER = new FirefoxDriver(ffoptions);
 			break;
-		case "Grid":
-
-			ChromeOptions chromeoptions1 = new ChromeOptions();
-			System.setProperty("webdriver.chrome.driver",
-					"C:/Program Files (x86)/Jenkins/tools/chromedriver/chromedriver.exe");
-			DesiredCapabilities d = DesiredCapabilities.chrome();
-			d.setBrowserName("chrome");
-			d.setPlatform(Platform.WINDOWS);
-			chromeoptions1.setPageLoadStrategy(PageLoadStrategy.NONE);
-			chromeoptions1.addArguments("start-maximized");
-			chromeoptions1.addArguments("enable-automation");
-			// options.addArguments("--headless");
-			chromeoptions1.addArguments("--no-sandbox");
-			chromeoptions1.addArguments("--disable-infobars");
-			chromeoptions1.addArguments("--disable-dev-shm-usage");
-			chromeoptions1.addArguments("--disable-browser-side-navigation");
-			chromeoptions1.addArguments("--disable-gpu");
-			chromeoptions1.setAcceptInsecureCerts(true);
-			chromeoptions1.merge(d);
-			try {
-				REAL_DRIVER = new RemoteWebDriver(new URL("http://172.31.0.209:4444/wd/hub"), chromeoptions1);
-
-			} catch (MalformedURLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
 		case "chrome":
 		case "CHROME":
 		default:
@@ -97,24 +70,12 @@ public class SharedDriver extends EventFiringWebDriver {
 			chromeoptions.addArguments("--disable-browser-side-navigation");
 			chromeoptions.addArguments("--disable-gpu");
 			chromeoptions.setAcceptInsecureCerts(true);
-			chromeoptions.setBinary("C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe");
-			/*
-			 * DesiredCapabilities capability = DesiredCapabilities.chrome();
-			 * capability.setBrowserName("chrome");
-			 * capability.setPlatform(Platform.WINDOWS); chromeoptions.merge(capability);
-			 * 
-			 * try { REAL_DRIVER = new RemoteWebDriver(new
-			 * URL("http://172.31.0.209:4444/wd/hub"), chromeoptions); } catch
-			 * (MalformedURLException e) { // TODO Auto-generated catch block
-			 * e.printStackTrace(); }
-			 */
-
 			REAL_DRIVER = new ChromeDriver(chromeoptions);
 			break;
 		}
 		// implicit wait set up
-		REAL_DRIVER.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		Runtime.getRuntime().addShutdownHook(CLOSE_THREAD);
+		REAL_DRIVER.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		// Runtime.getRuntime().addShutdownHook(CLOSE_THREAD);
 	}
 
 	public SharedDriver() {
@@ -123,14 +84,12 @@ public class SharedDriver extends EventFiringWebDriver {
 		CUtil.setWebDriver(REAL_DRIVER);
 	}
 
-	@Override
-	public void close() {
-		if (Thread.currentThread() != CLOSE_THREAD) {
-			throw new UnsupportedOperationException(
-					"You shouldn't close this WebDriver. It's shared and will close when the JVM exits.");
-		}
-		super.close();
-	}
+	/*
+	 * @Override public void close() { if (Thread.currentThread() != CLOSE_THREAD) {
+	 * throw new UnsupportedOperationException(
+	 * "You shouldn't close this WebDriver. It's shared and will close when the JVM exits."
+	 * ); } super.close(); }
+	 */
 
 	@Before
 	/**

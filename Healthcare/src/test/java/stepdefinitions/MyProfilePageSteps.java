@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 import PageActions.MyProfileActions;
@@ -19,18 +20,24 @@ public class MyProfilePageSteps {
 
 	@Then("I should be on My Profile Page")
 	public void i_should_be_on_My_Profile_Page() {
-		MyProfileActions.verifyPageTitle("My Profile");
+		String lang = System.getProperty("language");
+		String text = "";
+		if (lang.equalsIgnoreCase("english")) {
+			text = "My Profile";
+		} else if (lang.equalsIgnoreCase("spanish")) {
+			text = "Mi Perfil";
+		}
+		Assert.assertTrue(MyProfileActions.verifyPageTitle(text));
 	}
 
 	@When("I click on Verify My Profile")
 	public void i_click_on_Verify_My_Profile() throws InterruptedException {
 		MyProfileActions.clickVerifyNow();
 	}
-	
+
 	@When("I click on My Applications & Coverage option")
 	public void i_click_on_My_Applications_Coverage_option() {
 		MyProfileActions.clickMyApplicationsAndCoverage();
 	}
-
 
 }

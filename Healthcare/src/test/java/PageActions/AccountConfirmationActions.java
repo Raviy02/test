@@ -14,12 +14,19 @@ public class AccountConfirmationActions {
 	}
 
 	public void clickContinueToLogin() {
-		CUtil.click(By.xpath("//*[text()='Continue to login']"));
+		CUtil.click(By.xpath("//a[@class='btn btn-lg btn-success']"));
 	}
 
 	public boolean isAtThisPage() {
 		CUtil.switchToWindow("window2");
-		return CUtil.isDisplayed(By.xpath("//h1[text()='Your account is ready']"));
+		String lang = System.getProperty("language");
+		if (lang.equalsIgnoreCase("english")) {
+			return CUtil.isDisplayed(By.xpath("//h1[text()='Your account is ready']"));
+		} else if (lang.equalsIgnoreCase("spanish")) {
+			return CUtil.isDisplayed(By.xpath("//h1[text()='Su cuenta está lista']"));
+		}
+		return false;
+
 	}
 
 }

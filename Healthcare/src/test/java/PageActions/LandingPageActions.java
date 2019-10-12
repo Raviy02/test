@@ -25,15 +25,15 @@ public class LandingPageActions {
 
 	public void clickCreateOne() {
 		CUtil.switchToMainWindow();
-		CUtil.click(By.xpath("//*[text()='Create one']"));
+		CUtil.click(By.xpath("//a[@href='/create-account']"));
 	}
 
 	public void enterUserName(String text) {
-		CUtil.type(By.xpath("//*[contains(@id,'Username')]"), text);
+		CUtil.type(By.xpath("//*[@name='username']"), text);
 	}
 
 	public void enterPassword(String text) {
-		CUtil.type(By.xpath("//*[contains(@id,'Password')]"), text);
+		CUtil.type(By.xpath("//*[@name='password']"), text);
 	}
 
 	public void clickLoginButton() {
@@ -41,7 +41,14 @@ public class LandingPageActions {
 	}
 
 	public boolean isAtThisPage() {
-		return CUtil.isDisplayed(By.xpath("//h1[text()='Log in']"));
+		String language = System.getProperty("language");
+		if (language.equalsIgnoreCase("English")) {
+			return CUtil.isDisplayed(By.xpath("//h1[text()='Log in']"));
+		} else if (language.equalsIgnoreCase("spanish")) {
+			return CUtil.isDisplayed(By.xpath("//h1[text()='Iniciar sesión']"));
+		}
+		return false;
+
 	}
 
 }

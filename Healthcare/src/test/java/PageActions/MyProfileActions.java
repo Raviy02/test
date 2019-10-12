@@ -13,20 +13,20 @@ public class MyProfileActions {
 		this.driver = driver;
 	}
 
-	public static void verifyPageTitle(String text) {
-		CUtil.waitUtilAtNextPage(text);
+	public static boolean verifyPageTitle(String text) {
+		return CUtil.waitUtilAtNextPage(text);
 	}
 
 	public static void clickVerifyNow() throws InterruptedException {
 		CUtil.waitForElementDisappear(By.xpath("//div[@id='saveBlocker']"));
-		CUtil.waitForClickableElement(By.xpath("//a[text()='Verify now']"));
-		CUtil.clickException(By.xpath("//a[text()='Verify now']"));
+		CUtil.waitForClickableElement(By.xpath("//a[@class='idProofNow']"));
+		CUtil.clickException(By.xpath("//a[@class='idProofNow']"));
 	}
 
 	public static void clickMyApplicationsAndCoverage() {
 		CUtil.waitForElementDisappear(By.xpath("//div[@id='saveBlocker']"));
-		CUtil.waitForClickableElement(By.xpath("//li[@id='myAppCoverageIcon']//*[text()='My Applications & Coverage']"));
-		CUtil.click(By.xpath("//li[@id='myAppCoverageIcon']//*[text()='My Applications & Coverage']"));
+		CUtil.waitForClickableElement(By.xpath("//li[@id='myAppCoverageIcon']//a"));
+		CUtil.click(By.xpath("//li[@id='myAppCoverageIcon']//a"));
 	}
 
 }

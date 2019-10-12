@@ -42,9 +42,15 @@ public class RandonEmailActions {
 	}
 
 	public void clickVerificationLink() {
+		String language = System.getProperty("language");
 		try {
 			CUtil.switchFrame("ifmail");
-			CUtil.click(By.xpath("//*[text()='HealthCare.gov']"));
+			if (language.equalsIgnoreCase("English")) {
+				CUtil.click(By.xpath("//*[text()='HealthCare.gov']"));
+			} else if (language.equalsIgnoreCase("spanish")) {
+				CUtil.click(By.xpath("//*[text()='CuidadoDeSalud.gov']"));
+			}
+
 		} finally {
 			CUtil.switchToTopFrame();
 			System.out.println("main window");

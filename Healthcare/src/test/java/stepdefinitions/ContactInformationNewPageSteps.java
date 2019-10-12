@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 import PageActions.ContactInformationActionsNewApplication;
@@ -19,7 +20,16 @@ public class ContactInformationNewPageSteps {
 
 	@Then("I should be on Contact information Page")
 	public void i_should_be_on_Contact_information_Page() {
-		ContactInformationActionsNewApplication.verifyPageTitle("Contact information");
+		String lang = System.getProperty("language");
+		String text = "";
+		if (lang.equalsIgnoreCase("english")) {
+			text = "Contact information";
+		} else if (lang.equalsIgnoreCase("spanish")) {
+			text = "¿Cuál es su información de contacto?";
+		}
+		Assert.assertTrue(ContactInformationActionsNewApplication.verifyPageTitle(text));
+		// ContactInformationActionsNewApplication.verifyPageTitle("Contact
+		// information");
 	}
 
 	@When("I select Phone type as {string}")

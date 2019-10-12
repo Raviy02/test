@@ -12,8 +12,8 @@ public class StartApplicationActions {
 		this.driver = driver;
 	}
 
-	public static void verifyPageTitle(String text) {
-		CUtil.waitUtilAtNextPage(text);
+	public static boolean verifyPageTitle(String text) {
+		return CUtil.waitUtilAtNextPage(text);
 	}
 
 	public static void clickNextButton() {
@@ -27,7 +27,7 @@ public class StartApplicationActions {
 	}
 
 	public static void clickTakeMeToApplicationButton() {
-		CUtil.click(By.xpath("//*[text()='Take me to the application']"));
+		CUtil.click(By.xpath("//button[@class='btn btn-lg btn-submit btn-success']"));
 	}
 
 	public static void selectMaritialStatue(String text) {
@@ -77,7 +77,7 @@ public class StartApplicationActions {
 	}
 
 	public static void clickContinueButton() {
-		CUtil.click(By.xpath("//*[text()='Continue']"));
+		CUtil.click(By.xpath("//button[@class='btn btn-lg btn-success btn-submit']"));
 	}
 
 	public void selectApplicant(String text) {

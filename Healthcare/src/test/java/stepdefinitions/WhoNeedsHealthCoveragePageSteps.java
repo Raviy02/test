@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 import PageActions.WhoNeedsHealthCoverageActions;
@@ -19,7 +20,15 @@ public class WhoNeedsHealthCoveragePageSteps {
 
 	@Then("I should be on Who needs health coverage? Page")
 	public void i_should_be_on_Who_needs_health_coverage_Page() {
-		WhoNeedsHealthCoverageActions.verifyPageTitle("Who needs health coverage?");
+		String lang = System.getProperty("language");
+		String text = "";
+		if (lang.equalsIgnoreCase("english")) {
+			text = "Who needs health coverage?";
+		} else if (lang.equalsIgnoreCase("spanish")) {
+			text = "¿Quién necesita cobertura médica?";
+		}
+		Assert.assertTrue(WhoNeedsHealthCoverageActions.verifyPageTitle(text));
+		// WhoNeedsHealthCoverageActions.verifyPageTitle("Who needs health coverage?");
 	}
 
 	@When("I click Save button on Who needs health coverage? Page")

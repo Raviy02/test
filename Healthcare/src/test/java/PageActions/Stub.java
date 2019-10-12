@@ -16,12 +16,44 @@ public class Stub {
 
 	public static void init() {
 		String url = "file:///" + System.getProperty("user.dir") + "/src/test/resources/HTML files/Environments.html";
-		System.out.println(url);
+		String locator = "default";
+		String env = System.getProperty("environment");
 		CUtil.OpenBrowser(url);
-		CUtil.waitForClickableElement(By.xpath("//a[contains(@href,'" + System.getProperty("environment") + "')]"));
-		CUtil.click(By.xpath("//a[contains(@href,'" + System.getProperty("environment") + "')]"));
-		CUtil.waitForVisibleElement(By.xpath("//a[text()='Log in']"));
-		CUtil.click(By.xpath("//a[text()='Log in']"));
+		String language = System.getProperty("language");
+
+		if (language.equalsIgnoreCase("English")) {
+			switch (env) {
+			case "Test3":
+			case "test3":
+				locator = "//a[contains(@href,'"
+						+ CUtil.getProperty("src/test/resources/Language Config/language.properties", "AWS-Test3")
+						+ "')]";
+				System.out.println(locator);
+				break;
+
+			default:
+				break;
+			}
+			CUtil.waitForClickableElement(By.xpath(locator));
+			CUtil.click(By.xpath(locator));
+		} else if (language.equalsIgnoreCase("spanish")) {
+			switch (env) {
+			case "Test3":
+			case "test3":
+				locator = "//a[contains(@href,'" + CUtil.getProperty(
+						"src/test/resources/Language Config/language.properties", "AWS-Test3-Spanish") + "')]";
+				System.out.println(locator);
+				break;
+
+			default:
+				break;
+			}
+			CUtil.waitForClickableElement(By.xpath(locator));
+			CUtil.click(By.xpath(locator));
+		}
+		CUtil.waitForVisibleElement(By.xpath("//a[@href='/login'][@class='header-link']"));
+		CUtil.click(By.xpath("//a[@href='/login'][@class='header-link']"));
+
 		flag = true;
 	}
 

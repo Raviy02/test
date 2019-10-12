@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 import PageActions.MaritalStatusActions;
@@ -19,7 +20,15 @@ public class MaritalStatusPageSteps {
 
 	@Then("I Should be on Marital status Page")
 	public void i_Should_be_on_Marital_status_Page() {
-		MaritalStatusActions.verifyPageTitle("Marital status");
+		String lang = System.getProperty("language");
+		String text = "";
+		if (lang.equalsIgnoreCase("english")) {
+			text = "Marital status";
+		} else if (lang.equalsIgnoreCase("spanish")) {
+			text = "Estado civil";
+		}
+		Assert.assertTrue(MaritalStatusActions.verifyPageTitle(text));
+		// MaritalStatusActions.verifyPageTitle("Marital status");
 	}
 
 	@When("I select Maritial status as {string} on Marital status Page")

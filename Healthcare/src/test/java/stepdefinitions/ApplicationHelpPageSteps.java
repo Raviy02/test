@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 import PageActions.ApplicationHelpActions;
@@ -18,7 +19,15 @@ public class ApplicationHelpPageSteps {
 
 	@Then("I should be on Application help Page")
 	public void i_should_be_on_Application_help_Page() {
-		ApplicationHelpActions.verifyPageTitle("Application help");
+		String lang = System.getProperty("language");
+		String text = "";
+		if (lang.equalsIgnoreCase("english")) {
+			text = "Application help";
+		} else if (lang.equalsIgnoreCase("spanish")) {
+			text = "Díganos si un profesional le está ayudando";
+		}
+		Assert.assertTrue(ApplicationHelpActions.verifyPageTitle(text));
+		// ApplicationHelpActions.verifyPageTitle("Application help");
 	}
 
 	@When("I select the option as {string}")

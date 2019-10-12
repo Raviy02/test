@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 import PageActions.HomeAddressActions;
@@ -19,7 +20,15 @@ public class HomeAddressPageSteps {
 
 	@Then("I should be on Home address Page")
 	public void i_should_be_on_Home_address_Page() {
-		HomeAddressActions.verifyPageTitle("Home address");
+		String lang = System.getProperty("language");
+		String text = "";
+		if (lang.equalsIgnoreCase("english")) {
+			text = "Home address";
+		} else if (lang.equalsIgnoreCase("spanish")) {
+			text = "¿Cual es su dirección residencial?";
+		}
+		Assert.assertTrue(HomeAddressActions.verifyPageTitle(text));
+		// HomeAddressActions.verifyPageTitle("Home address");
 	}
 
 	@When("I enter Street Address as {string}")

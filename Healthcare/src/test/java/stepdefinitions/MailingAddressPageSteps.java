@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 import PageActions.MailingAddressActions;
@@ -19,7 +20,15 @@ public class MailingAddressPageSteps {
 
 	@Then("I should be on Mailing Address Page")
 	public void i_should_be_on_Mailing_Address_Page() {
-		MailingAddressActions.verifyPageTitle("Mailing address");
+		String lang = System.getProperty("language");
+		String text = "";
+		if (lang.equalsIgnoreCase("english")) {
+			text = "Mailing address";
+		} else if (lang.equalsIgnoreCase("spanish")) {
+			text = "¿Cuál es su dirección postal?";
+		}
+		Assert.assertTrue(MailingAddressActions.verifyPageTitle(text));
+		// MailingAddressActions.verifyPageTitle("Mailing address");
 	}
 
 	@When("I Accept mailing address")

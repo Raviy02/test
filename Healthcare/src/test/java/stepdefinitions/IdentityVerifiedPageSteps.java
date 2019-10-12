@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 import PageActions.IdentityVerifiedActions;
@@ -19,7 +20,15 @@ public class IdentityVerifiedPageSteps {
 
 	@Then("I should be on Identity Verified Page")
 	public void i_should_be_on_Identity_Verified_Page() {
-		IdentityVerifiedActions.verifyPageTitle("Identity Verified");
+		String lang = System.getProperty("language");
+		String text = "";
+		if (lang.equalsIgnoreCase("english")) {
+			text = "Identity Verified";
+		} else if (lang.equalsIgnoreCase("spanish")) {
+			text = "Identidad verificada";
+		}
+		Assert.assertTrue(IdentityVerifiedActions.verifyPageTitle(text));
+		// IdentityVerifiedActions.verifyPageTitle("Identity Verified");
 	}
 
 	@When("I click on Continue button Identity Verified Page")
