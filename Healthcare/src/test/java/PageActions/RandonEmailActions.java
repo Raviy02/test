@@ -27,6 +27,12 @@ public class RandonEmailActions {
 
 	public void clickCheckMails() {
 		CUtil.switchToWindow("window1");
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		CUtil.click(By.xpath("//input[@value='Check mails']"));
 	}
 
