@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 import PageActions.HouseholdInformationActions;
@@ -18,7 +19,15 @@ public class HouseholdInformationPageSteps {
 
 	@Then("I Should be on Household information")
 	public void i_Should_be_on_Household_information() {
-		HouseholdInformationActions.verifyPageTitle("Household information");
+		String lang = System.getProperty("language");
+		String text = "";
+		if (lang.equalsIgnoreCase("english")) {
+			text = "Household information";
+		} else if (lang.equalsIgnoreCase("spanish")) {
+			text = "Información del hogar";
+		}
+		Assert.assertTrue(HouseholdInformationActions.verifyPageTitle(text));
+		// HouseholdInformationActions.verifyPageTitle("Household information");
 	}
 
 	@When("I select option as {string} on Household information")

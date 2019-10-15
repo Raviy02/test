@@ -95,3 +95,17 @@ Feature: OnePerson_FA
     Then I Should be on Marital status Page
     When I select Maritial status as "single" on Marital status Page
     And I click Save button on Marital status Page
+    Then I Should be on Tax relationships
+    Then I should see First Question as "¿Susan presentará una declaración federal de impuestos de 2019?"
+    When I answer First question as "Sí"
+    Then I should see Second Question as "¿Susan reclamará algún dependiente en su declaración federal de impuestos para 2019?"
+    When I answer Second question as "No"
+    Then I should see Third Question as "¿Alguien más reclamará a Susan como dependiente en su declaración federal de impuestos de 2019?"
+    When I answer Third question as "No"
+    And I click Save button on Tax relationships
+    Then I Should be on Parents & caretaker relatives Page
+    When I select dependents as "Ninguna de estas personas es el cuidador principal de un niño"
+    And I click Save button on Parents & caretaker relatives Page
+    Then I Should be on Household information
+    When I select option as "None of these apply to the people in the household" on Household information
+    And I click Save button on Household information

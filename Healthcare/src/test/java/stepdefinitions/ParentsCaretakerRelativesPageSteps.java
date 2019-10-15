@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 import PageActions.ParentsCaretakerRelativesActions;
@@ -18,7 +19,16 @@ public class ParentsCaretakerRelativesPageSteps {
 
 	@Then("I Should be on Parents & caretaker relatives Page")
 	public void i_Should_be_on_Parents_caretaker_relatives_Page() {
-		ParentsCaretakerRelativesActions.verifyPageTitle("Parents & caretaker relatives");
+		String lang = System.getProperty("language");
+		String text = "";
+		if (lang.equalsIgnoreCase("english")) {
+			text = "Parents & caretaker relatives";
+		} else if (lang.equalsIgnoreCase("spanish")) {
+			text = "Padres y familiares cuidadores";
+		}
+		Assert.assertTrue(ParentsCaretakerRelativesActions.verifyPageTitle(text));
+		// ParentsCaretakerRelativesActions.verifyPageTitle("Parents & caretaker
+		// relatives");
 	}
 
 	@When("I select dependents as {string}")

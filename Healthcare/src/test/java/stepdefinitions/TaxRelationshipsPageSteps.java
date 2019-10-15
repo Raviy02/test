@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 import PageActions.TaxRelationshipsActions;
@@ -19,7 +20,15 @@ public class TaxRelationshipsPageSteps {
 
 	@Then("I Should be on Tax relationships")
 	public void i_Should_be_on_Tax_relationships() {
-		TaxRelationshipsActions.verifyPageTitle("Tax relationships");
+		String lang = System.getProperty("language");
+		String text = "";
+		if (lang.equalsIgnoreCase("english")) {
+			text = "Tax relationships";
+		} else if (lang.equalsIgnoreCase("spanish")) {
+			text = "Relaciones fiscales";
+		}
+		Assert.assertTrue(TaxRelationshipsActions.verifyPageTitle(text));
+		// TaxRelationshipsActions.verifyPageTitle("Tax relationships");
 	}
 
 	@Then("I should see First Question as {string}")

@@ -202,15 +202,15 @@ Scenario: Dependent_FA
 	And I click Save button 
 	Then I should see the Status as "See if your doctors, facilities & drugs are covered" 
 	When I click on Skip button 
-	#Then I should see the Status as "Estimate total yearly costs" 
-	#When I select option as "Expect low use" for Select the level of care 
-	#And I click on Next person button 
-	#Then I should see the Status as "Estimate total yearly costs" 
-	#When I select option as "Expect low use" for Select the level of care 
-	#And I click on Next person button 
-	#Then I should see the Status as "Estimate total yearly costs" 
-	#When I select option as "Expect low use" for Select the level of care 
-	#And I click Save button 
+	Then I should see the Status as "Estimate total yearly costs" 
+	When I select option as "Expect low use" for Select the level of care 
+	And I click on Next person button 
+	Then I should see the Status as "Estimate total yearly costs" 
+	When I select option as "Expect low use" for Select the level of care 
+	And I click on Next person button 
+	Then I should see the Status as "Estimate total yearly costs" 
+	When I select option as "Expect low use" for Select the level of care 
+	And I click Save button 
 	Then I should see the Status as "Health plan groups for your household" 
 	When I click on Change Groups button 
 	And I select "Move To New Group" for Spouse 

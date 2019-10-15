@@ -12,18 +12,19 @@ public class TaxRelationshipsActions {
 		this.driver = driver;
 	}
 
-	public static void verifyPageTitle(String text) {
-		CUtil.waitUtilAtNextPage(text);
+	public static boolean verifyPageTitle(String text) {
+		return CUtil.waitUtilAtNextPage(text);
 	}
 
 	public static void clickSave() {
 		CUtil.waitForPageLoad();
-		CUtil.click(By.xpath("//*[text()='Save & continue']"));
+		CUtil.click(By.xpath("//button[@class='ds-c-button ds-c-button--primary ds-u-margin-top--4']"));
 	}
 
 	public static void answerFirstQuestion(String text) {
 		switch (text) {
 		case "Yes":
+		case "Sí":
 			CUtil.waitForPageLoad();
 			CUtil.click(By.xpath("//*[contains(@name,'filing')][@value='true']"));
 			break;
@@ -88,10 +89,21 @@ public class TaxRelationshipsActions {
 			CUtil.isDisplayed(By.xpath(
 					"//*[text()='Who will Susan and Spouse claim as a dependent on their 2019 federal tax return?']"));
 			break;
-
 		case "Will Susan file a 2019 joint federal income tax return with Spouse?":
 			CUtil.isDisplayed(
 					By.xpath("//*[text()='Will Susan file a 2019 joint federal income tax return with Spouse?']"));
+			break;
+		case "¿Susan presentará una declaración federal de impuestos de 2019?":
+			CUtil.isDisplayed(
+					By.xpath("//*[text()='¿Susan presentará una declaración federal de impuestos de 2019?']"));
+			break;
+		case "¿Susan reclamará algún dependiente en su declaración federal de impuestos para 2019?":
+			CUtil.isDisplayed(By.xpath(
+					"//*[text()='¿Susan reclamará algún dependiente en su declaración federal de impuestos para 2019?']"));
+			break;
+		case "¿Alguien más reclamará a Susan como dependiente en su declaración federal de impuestos de 2019?":
+			CUtil.isDisplayed(By.xpath(
+					"//*[text()='¿Alguien más reclamará a Susan como dependiente en su declaración federal de impuestos de 2019?']"));
 			break;
 
 		default:
