@@ -26,7 +26,7 @@ Scenario: Dependent_NFA
 	When I type UserName 
 	And I type Password as "Test123#" on Login Page 
 	And I click on Login button 
-	Then I should be on MarketPlace Page 
+	#Then I should be on MarketPlace Page 
 	When I click on User Profile option 
 	And I click on My Profile Option 
 	Then I should be on My Profile Page 
