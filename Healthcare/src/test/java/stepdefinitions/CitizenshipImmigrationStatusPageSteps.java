@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 import PageActions.CitizenshipImmigrationStatusActions;
@@ -19,7 +20,16 @@ public class CitizenshipImmigrationStatusPageSteps {
 
 	@Then("I Should be on Citizenship & Immigration Status Page")
 	public void i_Should_be_on_Citizenship_Immigration_Status_Page() {
-		CitizenshipImmigrationStatusActions.verifyPageTitle("Citizenship & Immigration Status");
+		String lang = System.getProperty("language");
+		String text = "";
+		if (lang.equalsIgnoreCase("english")) {
+			text = "Citizenship & Immigration Status";
+		} else if (lang.equalsIgnoreCase("spanish")) {
+			text = "Ciudadanía y Estatus Migratorio";
+		}
+		Assert.assertTrue(CitizenshipImmigrationStatusActions.verifyPageTitle(text));
+		// CitizenshipImmigrationStatusActions.verifyPageTitle("Citizenship &
+		// Immigration Status");
 	}
 
 	@When("I Select option as {string}")

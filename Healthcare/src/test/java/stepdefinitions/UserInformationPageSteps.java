@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 import PageActions.UserInformationActions;
@@ -19,7 +20,15 @@ public class UserInformationPageSteps {
 
 	@Then("I Should be on User Information Page")
 	public void i_Should_be_on_User_Information_Page() {
-		UserInformationActions.verifyPageTitle("Susan's information");
+		String lang = System.getProperty("language");
+		String text = "";
+		if (lang.equalsIgnoreCase("english")) {
+			text = "Susan's information";
+		} else if (lang.equalsIgnoreCase("spanish")) {
+			text = "Díganos sobre Susan";
+		}
+		Assert.assertTrue(UserInformationActions.verifyPageTitle(text));
+		// UserInformationActions.verifyPageTitle("Susan's information");
 	}
 
 	@Then("I Should be on User Information Page after name update")

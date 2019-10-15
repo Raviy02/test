@@ -109,3 +109,16 @@ Feature: OnePerson_FA
     Then I Should be on Household information
     When I select option as "None of these apply to the people in the household" on Household information
     And I click Save button on Household information
+    Then I Should be on User Information Page
+    When I click Save button on User Information Page
+    Then I Should be on User Information Page
+    And I select Susan doesn't have an SSN option
+    And I click Save button on User Information Page
+    Then I Should be on Citizenship & Immigration Status Page
+    When I Select option as "Yes"
+    And I click Save button on Citizenship & Immigration Status Page
+    Then I Should be on User Citizenship Page
+    When I select option as "No" on User Citizenship Page
+    And I click Save button on User Citizenship Page
+		Then I Should be on Disabilities & help with activities Page
+	When I click Save button on Disabilities & help with activities Page

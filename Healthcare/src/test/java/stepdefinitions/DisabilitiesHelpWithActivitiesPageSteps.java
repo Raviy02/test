@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 import PageActions.DisabilitiesHelpWithActivitiesActions;
@@ -19,7 +20,16 @@ public class DisabilitiesHelpWithActivitiesPageSteps {
 
 	@Then("I Should be on Disabilities & help with activities Page")
 	public void i_Should_be_on_Disabilities_help_with_activities_Page() {
-		DisabilitiesHelpWithActivitiesActions.verifyPageTitle("Disabilities & help with activities");
+		String lang = System.getProperty("language");
+		String text = "";
+		if (lang.equalsIgnoreCase("english")) {
+			text = "Disabilities & help with activities";
+		} else if (lang.equalsIgnoreCase("spanish")) {
+			text = "Díganos sobre su hogar";
+		}
+		Assert.assertTrue(DisabilitiesHelpWithActivitiesActions.verifyPageTitle(text));
+		// DisabilitiesHelpWithActivitiesActions.verifyPageTitle("Disabilities & help
+		// with activities");
 	}
 
 	@When("I click Save button on Disabilities & help with activities Page")
