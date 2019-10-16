@@ -13,8 +13,8 @@ public class LifeChangesPageActions {
 		this.driver = driver;
 	}
 
-	public static void verifyPageTitle(String text) {
-		CUtil.waitUtilAtNextPage(text);
+	public static boolean verifyPageTitle(String text) {
+		return CUtil.waitUtilAtNextPage(text);
 	}
 
 	public static void clickSave() {
@@ -22,12 +22,13 @@ public class LifeChangesPageActions {
 		 * try { Thread.sleep(2000); } catch (InterruptedException e) { // TODO
 		 * Auto-generated catch block e.printStackTrace(); }
 		 */
-		CUtil.click(By.xpath("//*[text()='Save & continue']"));
+		CUtil.click(By.xpath("//button[@class='ds-c-button ds-c-button--primary ds-u-margin-top--4']"));
 	}
 
 	public void selectOptions(String text) {
 		switch (text) {
 		case "Was released from incarceration (detention or jail)":
+		case "Fue liberado de su encarcelamiento (detención o cárcel)":
 			CUtil.waitForPageLoad();
 			CUtil.click(By.xpath("//input[@value='releasedFromJailOrPrison']"));
 			break;

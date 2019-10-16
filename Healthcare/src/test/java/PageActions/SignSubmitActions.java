@@ -12,8 +12,8 @@ public class SignSubmitActions {
 		this.driver = driver;
 	}
 
-	public static void verifyPageTitle(String text) {
-		CUtil.waitUtilAtNextPage(text);
+	public static boolean verifyPageTitle(String text) {
+		return CUtil.waitUtilAtNextPage(text);
 	}
 
 	public static void clickSave() {
@@ -24,8 +24,9 @@ public class SignSubmitActions {
 			e.printStackTrace();
 		}
 		CUtil.waitForPageLoad();
-		CUtil.javaScrollIntoView(driver.findElement(By.xpath("//button[text()='Sign & submit']")));
-		CUtil.click(By.xpath("//button[text()='Sign & submit']"));
+		CUtil.javaScrollIntoView(
+				driver.findElement(By.xpath("//button[@class='ds-c-button ds-c-button--primary ds-u-margin-top--4']")));
+		CUtil.click(By.xpath("//button[@class='ds-c-button ds-c-button--primary ds-u-margin-top--4']"));
 	}
 
 	public static void acceptAgreement() {

@@ -17,8 +17,8 @@ public class IndividualApplicationEligibilityDeterminationActions {
 		this.driver = driver;
 	}
 
-	public void verifyPageTitle(String text) {
-		CUtil.waitUtilAtNextPage(text);
+	public boolean verifyPageTitle(String text) {
+		return CUtil.waitUtilAtNextPage(text);
 	}
 
 	public void clickViewEligibility() {

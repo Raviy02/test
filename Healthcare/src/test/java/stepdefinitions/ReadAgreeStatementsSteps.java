@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 import PageActions.ReadAgreeStatementsActions;
@@ -19,7 +20,16 @@ public class ReadAgreeStatementsSteps {
 
 	@Then("I should be on Read & agree to these statements Page")
 	public void i_should_be_on_Read_agree_to_these_statements_Page() {
-		ReadAgreeStatementsActions.verifyPageTitle("Read & agree to these statements");
+		String lang = System.getProperty("language");
+		String text = "";
+		if (lang.equalsIgnoreCase("english")) {
+			text = "Read & agree to these statements";
+		} else if (lang.equalsIgnoreCase("spanish")) {
+			text = "Lea y acepte estas declaraciones";
+		}
+		Assert.assertTrue(ReadAgreeStatementsActions.verifyPageTitle(text));
+		// ReadAgreeStatementsActions.verifyPageTitle("Read & agree to these
+		// statements");
 	}
 
 	@When("I accepct All Agreement on Read & agree to these statements Page")

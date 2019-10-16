@@ -14,24 +14,24 @@ public class UpcomingCoverageChangesPageActions {
 		this.driver = driver;
 	}
 
-	public static void verifyPageTitle(String text) {
-		CUtil.waitUtilAtNextPage(text);
+	public static boolean verifyPageTitle(String text) {
+		return CUtil.waitUtilAtNextPage(text);
 	}
 
 	public static void clickSave() {
-		CUtil.waitForVisibleElement(By.xpath("//*[text()='Save & continue']"));
+		CUtil.waitForVisibleElement(By.xpath("//button[@class='ds-c-button ds-c-button--primary ds-u-margin-top--4']"));
 
 		try {
 			Thread.sleep(4000);
 		} catch (InterruptedException e) {
 		}
-		CUtil.clickSelenium(By.xpath("//*[text()='Save & continue']"));
+		CUtil.clickSelenium(By.xpath("//button[@class='ds-c-button ds-c-button--primary ds-u-margin-top--4']"));
 		if (!driver.getTitle().equals("Life changes") && count > 0) {
 			try {
 				Thread.sleep(2000);
 			} catch (InterruptedException e) {
 			}
-			CUtil.clickSelenium(By.xpath("//*[text()='Save & continue']"));
+			CUtil.clickSelenium(By.xpath("//button[@class='ds-c-button ds-c-button--primary ds-u-margin-top--4']"));
 		}
 		count++;
 

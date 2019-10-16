@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 import PageActions.RecentCoverageChangesPageActions;
@@ -19,7 +20,15 @@ public class RecentCoverageChangesPageSteps {
 
 	@Then("I should be on Recent coverage changes Page")
 	public void i_should_be_on_Recent_coverage_changes_Page() {
-		RecentCoverageChangesPageActions.verifyPageTitle("Recent coverage changes");
+		String lang = System.getProperty("language");
+		String text = "";
+		if (lang.equalsIgnoreCase("english")) {
+			text = "Recent coverage changes";
+		} else if (lang.equalsIgnoreCase("spanish")) {
+			text = "Díganos sobre cualquier cambio reciente";
+		}
+		Assert.assertTrue(RecentCoverageChangesPageActions.verifyPageTitle(text));
+		// RecentCoverageChangesPageActions.verifyPageTitle("Recent coverage changes");
 	}
 
 	@When("I click Save button on Recent coverage changes Page")

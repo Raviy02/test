@@ -120,5 +120,57 @@ Feature: OnePerson_FA
     Then I Should be on User Citizenship Page
     When I select option as "No" on User Citizenship Page
     And I click Save button on User Citizenship Page
-		Then I Should be on Disabilities & help with activities Page
-	When I click Save button on Disabilities & help with activities Page
+    Then I Should be on Disabilities & help with activities Page
+    When I click Save button on Disabilities & help with activities Page
+    Then I Should be on Medicaid or CHIP denial Page
+    When I click Save button on Medicaid or CHIP denial Page
+    Then I Should be on Changes in coverage Page
+    When I click Save button on Changes in coverage Page
+    Then I Should be on Household income Page
+    When I select option as "User"
+    And I click Save button on Household income Page
+    Then I should be on Household expenses Page
+    When I click Save button on Household expenses Page
+    Then I should be on User Income Page
+    When I select type of income as "Empleo (como sueldo, salarios, comisiones o propinas)" on User Income Page
+    And I type Employer Name as "Accenture" on User Income Page
+    And I select salary cycle as "Yearly" on User Income Page
+    And I type salary as "24000" on User Income Page
+    And I type phone number as "2025547416" on User Income Page
+    And I click Save button on User Income Page
+    Then I should be on Review User Income & Expenses Page
+    When I accept User's expected income on Review User Income & Expenses Page
+    And I click Save button on Review User Income & Expenses Page
+    Then I should be on Current coverage Page
+    When I click Save button on Current coverage Page
+    Then I should be on Job-based health coverage Page
+    When I select option as "No" on Job-based health coverage page
+    And I click Save button on Job-based health coverage page
+    Then I should be on Recent coverage changes Page
+    When I click Save button on Recent coverage changes Page
+    Then I should be on Upcoming coverage changes Page
+    When I click Save button on Upcoming coverage changes Page
+    Then I should be on Life changes Page
+    When I select option as "Fue liberado de su encarcelamiento (detención o cárcel)" on Life changes Page
+    When I click Save button on Life changes Page
+    Then I should be on Incarceration release Page
+    When I select option as "User" on Incarceration release Page
+    When I click Save button on Incarceration release Page
+    Then I should be on User's incarceration release Page
+    When I type month as "09" on User's incarceration release Page
+    When I type day as "15" on User's incarceration release Page
+    When I type year as "2019" on User's incarceration release Page
+    When I click Save button on User's incarceration release Page
+    Then I should be on Review your application Page
+    When I click Save button on Review your application Page
+    Then I should be on Read & agree to these statements Page
+    When I accepct All Agreement on Read & agree to these statements Page
+    When I click Save button on Read & agree to these statements Page
+    Then I should be on Sign & submit Page
+    When I accept agreement on Sign & submit Page
+    And I type Name as "Susan Griffith" on Sign & submit Page
+    And I click Save button on Sign & submit Page
+    Then I should be on Individual Application - Eligibility determination Page
+    When I click VIEW ELIGIBILITY NOTICE (PDF) button
+    Then I should see Continue to enrollment button
+    When I click Continue to enrollment button

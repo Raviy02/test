@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 import PageActions.SignSubmitActions;
@@ -19,7 +20,15 @@ public class SignSubmitSteps {
 
 	@Then("I should be on Sign & submit Page")
 	public void i_should_be_on_Sign_submit_Page() {
-		SignSubmitActions.verifyPageTitle("Sign & submit");
+		String lang = System.getProperty("language");
+		String text = "";
+		if (lang.equalsIgnoreCase("english")) {
+			text = "Sign & submit";
+		} else if (lang.equalsIgnoreCase("spanish")) {
+			text = "Firmar y enviar";
+		}
+		Assert.assertTrue(SignSubmitActions.verifyPageTitle(text));
+		// SignSubmitActions.verifyPageTitle("Sign & submit");
 	}
 
 	@When("I accept agreement on Sign & submit Page")

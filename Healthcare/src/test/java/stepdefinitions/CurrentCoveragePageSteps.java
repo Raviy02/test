@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 import PageActions.CurrentCoverageActions;
@@ -19,7 +20,15 @@ public class CurrentCoveragePageSteps {
 
 	@Then("I should be on Current coverage Page")
 	public void i_should_be_on_Current_coverage_Page() {
-		CurrentCoverageActions.verifyPageTitle("Current coverage");
+		String lang = System.getProperty("language");
+		String text = "";
+		if (lang.equalsIgnoreCase("english")) {
+			text = "Current coverage";
+		} else if (lang.equalsIgnoreCase("spanish")) {
+			text = "Revise los ingresos y gastos de Susan";
+		}
+		Assert.assertTrue(CurrentCoverageActions.verifyPageTitle(text));
+		// CurrentCoverageActions.verifyPageTitle("Current coverage");
 	}
 
 	@When("I click Save button on Current coverage Page")

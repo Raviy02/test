@@ -12,8 +12,8 @@ public class ReviewYourApplicationActions {
 		this.driver = driver;
 	}
 
-	public static void verifyPageTitle(String text) {
-		CUtil.waitUtilAtNextPage(text);
+	public static boolean verifyPageTitle(String text) {
+		return CUtil.waitUtilAtNextPage(text);
 	}
 
 	public static void clickSave() {
@@ -24,8 +24,9 @@ public class ReviewYourApplicationActions {
 			e.printStackTrace();
 		}
 		CUtil.waitForPageLoad();
-		CUtil.javaScrollIntoView(driver.findElement(By.xpath("//*[text()='Save & continue']")));
-		CUtil.actionClick(By.xpath("//*[text()='Save & continue']"));
+		CUtil.javaScrollIntoView(
+				driver.findElement(By.xpath("//button[@class='ds-c-button ds-c-button--primary ds-u-margin-top--4']")));
+		CUtil.actionClick(By.xpath("//button[@class='ds-c-button ds-c-button--primary ds-u-margin-top--4']"));
 	}
 
 	public static void acceptIncome() {

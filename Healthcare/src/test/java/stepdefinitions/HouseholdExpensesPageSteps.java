@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 import PageActions.HouseholdExpensesActions;
@@ -19,7 +20,15 @@ public class HouseholdExpensesPageSteps {
 
 	@Then("I should be on Household expenses Page")
 	public void i_should_be_on_Household_expenses_Page() {
-		HouseholdExpensesActions.verifyPageTitle("Household expenses");
+		String lang = System.getProperty("language");
+		String text = "";
+		if (lang.equalsIgnoreCase("english")) {
+			text = "Household expenses";
+		} else if (lang.equalsIgnoreCase("spanish")) {
+			text = "Díganos sobre los gastos de su vivienda";
+		}
+		Assert.assertTrue(HouseholdExpensesActions.verifyPageTitle(text));
+		// HouseholdExpensesActions.verifyPageTitle("Household expenses");
 	}
 
 	@When("I click Save button on Household expenses Page")

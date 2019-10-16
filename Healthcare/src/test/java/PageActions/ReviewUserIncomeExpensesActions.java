@@ -12,13 +12,13 @@ public class ReviewUserIncomeExpensesActions {
 		this.driver = driver;
 	}
 
-	public static void verifyPageTitle(String text) {
-		CUtil.waitUtilAtNextPage(text);
+	public static boolean verifyPageTitle(String text) {
+		return CUtil.waitUtilAtNextPage(text);
 	}
 
 	public static void clickSave() {
 		CUtil.waitForVisibleElement(By.xpath("//p[contains(text(),'$')][2]"));
-		CUtil.click(By.xpath("//*[text()='Save & continue']"));
+		CUtil.click(By.xpath("//button[@class='ds-c-button ds-c-button--primary ds-u-margin-top--4']"));
 	}
 
 	public static void acceptIncome() {

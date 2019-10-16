@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 import PageActions.JobbasedhealthcoveragePageActions;
@@ -19,7 +20,15 @@ public class JobbasedhealthcoveragePageSteps {
 
 	@Then("I should be on Job-based health coverage Page")
 	public void i_should_be_on_Job_based_health_coverage_Page() {
-		JobbasedhealthcoveragePageActions.verifyPageTitle("Current coverage");
+		String lang = System.getProperty("language");
+		String text = "";
+		if (lang.equalsIgnoreCase("english")) {
+			text = "Current coverage";
+		} else if (lang.equalsIgnoreCase("spanish")) {
+			text = "Cobertura basada en el empleo";
+		}
+		Assert.assertTrue(JobbasedhealthcoveragePageActions.verifyPageTitle(text));
+		// JobbasedhealthcoveragePageActions.verifyPageTitle("Current coverage");
 	}
 
 	@When("I select option as {string} on Job-based health coverage page")

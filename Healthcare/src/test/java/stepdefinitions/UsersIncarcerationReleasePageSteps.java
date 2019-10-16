@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 import PageActions.UsersIncarcerationReleasePageActions;
@@ -18,7 +19,16 @@ public class UsersIncarcerationReleasePageSteps {
 
 	@Then("I should be on User's incarceration release Page")
 	public void i_should_be_on_User_s_incarceration_release_Page() {
-		UsersIncarcerationReleasePageActions.verifyPageTitle("Susan's incarceration release");
+		String lang = System.getProperty("language");
+		String text = "";
+		if (lang.equalsIgnoreCase("english")) {
+			text = "Susan's incarceration release";
+		} else if (lang.equalsIgnoreCase("spanish")) {
+			text = "Díganos sobre la liberación de la cárcel de Susan";
+		}
+		Assert.assertTrue(UsersIncarcerationReleasePageActions.verifyPageTitle(text));
+		// UsersIncarcerationReleasePageActions.verifyPageTitle("Susan's incarceration
+		// release");
 	}
 
 	@Then("I should be on User's incarceration release Page after name change")

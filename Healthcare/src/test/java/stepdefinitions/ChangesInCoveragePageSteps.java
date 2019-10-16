@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 import PageActions.ChangesInCoverageActions;
@@ -19,7 +20,15 @@ public class ChangesInCoveragePageSteps {
 
 	@Then("I Should be on Changes in coverage Page")
 	public void i_Should_be_on_Changes_in_coverage_Page() {
-		ChangesInCoverageActions.verifyPageTitle("Changes in coverage");
+		String lang = System.getProperty("language");
+		String text = "";
+		if (lang.equalsIgnoreCase("english")) {
+			text = "Changes in coverage";
+		} else if (lang.equalsIgnoreCase("spanish")) {
+			text = "Díganos sobre su hogar";
+		}
+		Assert.assertTrue(ChangesInCoverageActions.verifyPageTitle(text));
+		// ChangesInCoverageActions.verifyPageTitle("Changes in coverage");
 	}
 
 	@When("I click Save button on Changes in coverage Page")

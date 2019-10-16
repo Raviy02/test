@@ -13,12 +13,12 @@ public class HouseholdExpensesActions {
 		this.driver = driver;
 	}
 
-	public void verifyPageTitle(String text) {
-		CUtil.waitUtilAtNextPage(text);
+	public boolean verifyPageTitle(String text) {
+		return CUtil.waitUtilAtNextPage(text);
 	}
 
 	public void clickSave() {
-		CUtil.click(By.xpath("//*[text()='Save & continue']"));
+		CUtil.click(By.xpath("//button[@class='ds-c-button ds-c-button--primary ds-u-margin-top--4']"));
 	}
 
 }

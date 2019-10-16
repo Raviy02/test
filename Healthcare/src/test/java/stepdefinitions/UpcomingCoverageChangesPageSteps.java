@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 import PageActions.UpcomingCoverageChangesPageActions;
@@ -19,7 +20,16 @@ public class UpcomingCoverageChangesPageSteps {
 
 	@Then("I should be on Upcoming coverage changes Page")
 	public void i_should_be_on_Upcoming_coverage_changes_Page() {
-		UpcomingCoverageChangesPageActions.verifyPageTitle("Upcoming coverage changes");
+		String lang = System.getProperty("language");
+		String text = "";
+		if (lang.equalsIgnoreCase("english")) {
+			text = "Upcoming coverage changes";
+		} else if (lang.equalsIgnoreCase("spanish")) {
+			text = "Díganos sobre los próximos cambios";
+		}
+		Assert.assertTrue(UpcomingCoverageChangesPageActions.verifyPageTitle(text));
+		// UpcomingCoverageChangesPageActions.verifyPageTitle("Upcoming coverage
+		// changes");
 	}
 
 	@When("I click Save button on Upcoming coverage changes Page")

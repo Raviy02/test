@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 import PageActions.LifeChangesPageActions;
@@ -19,7 +20,15 @@ public class LifeChangesPageSteps {
 
 	@Then("I should be on Life changes Page")
 	public void i_should_be_on_Life_changes_Page() {
-		LifeChangesPageActions.verifyPageTitle("Life changes");
+		String lang = System.getProperty("language");
+		String text = "";
+		if (lang.equalsIgnoreCase("english")) {
+			text = "Life changes";
+		} else if (lang.equalsIgnoreCase("spanish")) {
+			text = "Díganos sobre cualquier cambio de vida";
+		}
+		Assert.assertTrue(LifeChangesPageActions.verifyPageTitle(text));
+		// LifeChangesPageActions.verifyPageTitle("Life changes");
 	}
 
 	@When("I select option as {string} on Life changes Page")

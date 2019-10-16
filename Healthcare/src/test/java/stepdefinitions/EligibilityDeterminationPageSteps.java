@@ -21,8 +21,16 @@ public class EligibilityDeterminationPageSteps {
 
 	@Then("I should be on Individual Application - Eligibility determination Page")
 	public void i_should_be_on_Individual_Application_Eligibility_determination_Page() {
-		IndividualApplicationEligibilityDeterminationActions
-				.verifyPageTitle("Individual Application - Eligibility determination");
+		String lang = System.getProperty("language");
+		String text = "";
+		if (lang.equalsIgnoreCase("english")) {
+			text = "Individual Application - Eligibility determination";
+		} else if (lang.equalsIgnoreCase("spanish")) {
+			text = "Solicitud Individual - Determinación de elegibilidad";
+		}
+		Assert.assertTrue(IndividualApplicationEligibilityDeterminationActions.verifyPageTitle(text));
+		// IndividualApplicationEligibilityDeterminationActions
+		// .verifyPageTitle("Individual Application - Eligibility determination");
 	}
 
 	@When("I click VIEW ELIGIBILITY NOTICE \\(PDF) button")

@@ -1,5 +1,6 @@
 package stepdefinitions;
 
+import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 
 import PageActions.UserIncomeActions;
@@ -19,7 +20,15 @@ public class UserIncomePageSteps {
 
 	@Then("I should be on User Income Page")
 	public void i_should_be_on_User_Income_Page() {
-		UserIncomeActions.verifyPageTitle("Susan’s income");
+		String lang = System.getProperty("language");
+		String text = "";
+		if (lang.equalsIgnoreCase("english")) {
+			text = "Susan’s income";
+		} else if (lang.equalsIgnoreCase("spanish")) {
+			text = "Díganos sobre los ingresos de Susan";
+		}
+		Assert.assertTrue(UserIncomeActions.verifyPageTitle(text));
+		// UserIncomeActions.verifyPageTitle("Susan’s income");
 	}
 
 	@Then("I should be on Spouse Income Page")
