@@ -7,8 +7,8 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(dryRun = false, features = "classpath:/", glue = { "classpath:/stepdefinitions", "runner" }, tags = {
-		"@Multi_FA or @Multi_NFA" }, plugin = { "html:target/cucumber-report/Regression",
-				"json:target/cucumber-report/Regression.json", "rerun:rerun/failed_scenarios.txt" })
+		"@SAML" }, plugin = { "html:target/cucumber-report/Regression", "json:target/cucumber-report/Regression.json",
+				"rerun:rerun/failed_scenarios.txt" })
 
 public class Runner_AT {
 

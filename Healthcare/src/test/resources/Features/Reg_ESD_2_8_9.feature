@@ -27,7 +27,7 @@ Given I navigate to Login Page
 	When I type UserName 
 	And I type Password as "Test123#" on Login Page 
 	And I click on Login button 
-	Then I should be on MarketPlace Page 
+	#Then I should be on MarketPlace Page 
 	When I click on User Profile option 
 	And I click on My Profile Option 
 	Then I should be on My Profile Page 
@@ -175,7 +175,7 @@ Given I navigate to Login Page
 	When I click VIEW ELIGIBILITY NOTICE (PDF) button
 	Then I should see Continue to enrollment button
 	When I click Continue to enrollment button
-	Then I should see the Status as "You're eligible to enroll in Marketplace coverage"
+	Then I should see the Status as "You’re eligible to enroll in Marketplace coverage"
 	When I should click on Start Button
 	Then I should see the Status as "Report tobacco use"
 	When I select option as "No" for tobacco use
@@ -200,7 +200,7 @@ Given I navigate to Login Page
 	When I record application id on My Applications & Coverage Page
 	And I click on Log Out button on My Applications & Coverage Page
 	
-	Given I login to ESD 
+	Given I login to ESD_2 
 	Then I should be on Eligibility Support Staff Desktop Page
 	When I type Application ID on Eligibility Support Staff Desktop Page
 	And I select Tenant ID as "DE" on Eligibility Support Staff Desktop Page
