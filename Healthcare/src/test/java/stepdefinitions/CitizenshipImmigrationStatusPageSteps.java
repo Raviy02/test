@@ -25,7 +25,7 @@ public class CitizenshipImmigrationStatusPageSteps {
 		if (lang.equalsIgnoreCase("english")) {
 			text = "Citizenship & Immigration Status";
 		} else if (lang.equalsIgnoreCase("spanish")) {
-			text = "Ciudadanía y Estatus Migratorio";
+			text = "Ciudadanía y estatus migratorio";
 		}
 		Assert.assertTrue(CitizenshipImmigrationStatusActions.verifyPageTitle(text));
 		// CitizenshipImmigrationStatusActions.verifyPageTitle("Citizenship &

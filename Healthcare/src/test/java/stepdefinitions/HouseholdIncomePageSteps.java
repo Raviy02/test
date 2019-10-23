@@ -25,7 +25,7 @@ public class HouseholdIncomePageSteps {
 		if (lang.equalsIgnoreCase("english")) {
 			text = "Household income";
 		} else if (lang.equalsIgnoreCase("spanish")) {
-			text = "Díganos sobre los ingresos de su hogar";
+			text = "Información del hogar";
 		}
 		Assert.assertTrue(HouseholdIncomeActions.verifyPageTitle(text));
 		// HouseholdIncomeActions.verifyPageTitle("Household income");

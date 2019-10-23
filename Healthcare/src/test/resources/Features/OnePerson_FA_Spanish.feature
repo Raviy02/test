@@ -26,6 +26,7 @@ Feature: OnePerson_FA
     When I type UserName
     And I type Password as "Test123#" on Login Page
     And I click on Login button
+    Then I should be on My Profile Page
     When I click on User Profile option
     And I click on My Profile Option
     Then I should be on My Profile Page
@@ -174,3 +175,32 @@ Feature: OnePerson_FA
     When I click VIEW ELIGIBILITY NOTICE (PDF) button
     Then I should see Continue to enrollment button
     When I click Continue to enrollment button
+    Then I should see the Status as "Usted es elegible para inscribirse en la cobertura del Mercado"
+    When I should click on Start Button
+    Then I should see the Status as "Decida cuánto crédito fiscal usar para reducir su prima mensual"
+    When I select option as "TODO el crédito fiscal cada mes." for monthly premium
+    When I click Save button
+    Then I should see the Status as "Reportar uso de tabaco"
+    When I select option as "No" for tobacco use
+    And I click Save button
+    Then I should see the Status as "Vea si sus médicos, instalaciones y medicamentos están cubiertos."
+    When I click on Skip button
+    Then I should see Help comparing plans modal
+    When I click on Close button
+    Then I should see the Status as "Seleccione un plan médico"
+    When I click on filter Plans button
+    And I type minimum monthly premium as "1"
+    And I click on Apply filters button
+    And I click on Enroll button for First plan
+    Then I should see the Status as "Selección de plan médico"
+    When I click on Select this plan button
+    Then I should see the Status as "Revise sus opciones de planes de salud"
+    When I select option as "No, complete health plan enrollment." for dentail plan
+    And I click on Continue button
+    Then I should see the Status as "Lea y acepte esta declaración para continuar"
+    When I Accept agreement for selected plan
+    And I click on Continue button
+    When I Accept agreement for selected plan
+    And I type Tax filer's signature (full name) as "Susan Griffith"
+    And I click on Continue button on agreement page
+    Then I should see the Status as "Ya casi termina"

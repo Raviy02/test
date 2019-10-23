@@ -191,4 +191,9 @@ public class EligibilityDeterminationPageSteps {
 		IndividualApplicationEligibilityDeterminationActions.clickMyApplicationAndCoverage();
 	}
 
+	@When("I click on Continue button on agreement page")
+	public void i_click_on_Continue_button_on_agreement_page() {
+		IndividualApplicationEligibilityDeterminationActions.clickContinueButtonAgreementPage();
+	}
+
 }

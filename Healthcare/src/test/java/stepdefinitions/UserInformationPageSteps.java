@@ -25,7 +25,7 @@ public class UserInformationPageSteps {
 		if (lang.equalsIgnoreCase("english")) {
 			text = "Susan's information";
 		} else if (lang.equalsIgnoreCase("spanish")) {
-			text = "Díganos sobre Susan";
+			text = "Información de Susan";
 		}
 		Assert.assertTrue(UserInformationActions.verifyPageTitle(text));
 		// UserInformationActions.verifyPageTitle("Susan's information");

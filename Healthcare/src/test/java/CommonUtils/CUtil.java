@@ -35,7 +35,7 @@ public class CUtil {
 
 	private static boolean HIGHLIGHT_SWITCH = true;
 
-	private final static int WAITING_TIME = 90;
+	private final static int WAITING_TIME = 30;
 
 	public static String email;
 

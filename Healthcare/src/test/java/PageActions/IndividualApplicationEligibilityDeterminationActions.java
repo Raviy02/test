@@ -54,15 +54,17 @@ public class IndividualApplicationEligibilityDeterminationActions {
 	}
 
 	public void clickStartButton() {
-		CUtil.click(By.xpath("//a[text()='Start']"));
+		CUtil.click(By.xpath("//a[@class='ds-c-button ds-c-button--primary']"));
 	}
 
 	public void clickSaveButton() {
-		CUtil.click(By.xpath("//*[text()='Save & Continue']"));
+		CUtil.click(By.xpath("//button[contains(@class,'ds-c-button--success')]"));
+
 	}
 
 	public void selectOption(String text) {
 		switch (text) {
+		case "TODO el crédito fiscal cada mes.":
 		case "ALL of the tax credit each month.":
 			CUtil.click(By.xpath("//input[@value='ALL']"));
 			break;
@@ -87,25 +89,26 @@ public class IndividualApplicationEligibilityDeterminationActions {
 	}
 
 	public void clickSkipButton() {
-		CUtil.click(By.xpath("//*[text()='Skip']"));
+		CUtil.click(By.xpath("//button[@class='ds-c-button ds-c-button--secondary ds-u-margin-top--5']"));
 	}
 
 	public boolean isModalDisplayed() {
 		try {
-			CUtil.waitForElement(By.xpath("//*[text()='Help comparing plans']"));
+			CUtil.waitForElement(By.xpath("//div[@id='react-aria-modal-dialog']"));
 		} catch (Exception e) {
 			return false;
 		}
-		return CUtil.isDisplayed(By.xpath("//*[text()='Help comparing plans']"));
+		return CUtil.isDisplayed(By.xpath("//div[@id='react-aria-modal-dialog']"));
 	}
 
 	public void clickCloseButton() {
-		CUtil.click(By.xpath("//*[text()='Close']"));
+		CUtil.click(By.xpath("//button[@aria-label='Close modal dialog']"));
 
 	}
 
 	public void clickFilterPlansButton() {
-		CUtil.click(By.xpath("//*[text()='Filter Plans']"));
+		CUtil.click(By.xpath(
+				"//button[@class='ds-c-button ds-c-button--primary ds-u-margin-right--2 ds-u-margin-bottom--1 ds-u-lg-margin-bottom--0']"));
 	}
 
 	public void typeMinimumMonthlyPremium(String text) {
@@ -114,22 +117,28 @@ public class IndividualApplicationEligibilityDeterminationActions {
 	}
 
 	public void clickApplyFiltersButton() {
-		CUtil.waitForVisibleElement(By.xpath("//button[@id='premium-filter-tag']"));
-		CUtil.click(By.xpath("//button[text()='Apply filters']"));
+		CUtil.waitForVisibleElement(By.xpath(
+				"//button[@class='ds-c-button ds-c-button--secondary ds-c-button--small pet-c-range-field__button']"));
+		CUtil.click(By.xpath(
+				"//button[@class='ds-c-button ds-c-button--secondary ds-c-button--small pet-c-range-field__button']"));
+		CUtil.waitForVisibleElement(By.xpath("//*[@id='premium-filter-tag']"));
+		CUtil.click(By.xpath("//button[@aria-label='apply_selected_filters']"));
 	}
 
 	public void clickEnrollButton() {
-		CUtil.waitForVisibleElement(By.xpath("//a[text()='Enroll']"));
-		CUtil.click(By.xpath("//a[text()='Enroll']"));
+		CUtil.waitForVisibleElement(
+				By.xpath("//a[@class='ds-c-button ds-c-button--primary pet-c-plan-card__action-button']"));
+		CUtil.click(By.xpath("//a[@class='ds-c-button ds-c-button--primary pet-c-plan-card__action-button']"));
 	}
 
 	public void clickSelectThisPlanButton() {
-		CUtil.click(By.xpath("//*[text()='Select this plan']"));
+		CUtil.click(By.xpath("//button[@class='ds-c-button ds-c-button--success ds-l-col--12 ds-l-sm-col--auto']"));
 	}
 
 	public void selectDentalPlan(String text) {
 
 		switch (text) {
+		case "No, termine la inscripción al plan de salud.":
 		case "No, complete health plan enrollment.":
 			CUtil.click(By.xpath("//input[@value='no']"));
 			break;
@@ -141,7 +150,7 @@ public class IndividualApplicationEligibilityDeterminationActions {
 	}
 
 	public void clickContinueButton() {
-		CUtil.click(By.xpath("//*[text()='Continue']"));
+		CUtil.click(By.xpath("//button[contains(@class,'continue')]"));
 	}
 
 	public void acceptAgreementForSelectedPlan() {
@@ -211,6 +220,10 @@ public class IndividualApplicationEligibilityDeterminationActions {
 
 	public void clickCancelAndGoBackToPlans() {
 		CUtil.click(By.xpath("//*[text()='Cancel and go back to plans']"));
+	}
+
+	public void clickContinueButtonAgreementPage() {
+		CUtil.click(By.xpath("//button[@class='ds-c-button ds-c-button--primary']"));
 	}
 
 }
