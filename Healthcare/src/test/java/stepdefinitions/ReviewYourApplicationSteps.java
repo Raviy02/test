@@ -22,7 +22,7 @@ public class ReviewYourApplicationSteps {
 		String lang = System.getProperty("language");
 		String text = "";
 		if (lang.equalsIgnoreCase("english")) {
-			text = "Review your applicationn";
+			text = "Review your application";
 		} else if (lang.equalsIgnoreCase("spanish")) {
 			text = "Revise su solicitud";
 		}

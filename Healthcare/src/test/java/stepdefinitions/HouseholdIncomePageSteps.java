@@ -23,7 +23,7 @@ public class HouseholdIncomePageSteps {
 		String lang = System.getProperty("language");
 		String text = "";
 		if (lang.equalsIgnoreCase("english")) {
-			text = "Household income";
+			text = "Household information";
 		} else if (lang.equalsIgnoreCase("spanish")) {
 			text = "Información del hogar";
 		}

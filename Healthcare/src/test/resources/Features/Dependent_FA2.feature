@@ -2,7 +2,7 @@
 Feature: Dependent_FA 
 
 Scenario: Dependent_FA 
-		Given I navigate to Login Page 
+	Given I navigate to Login Page 
 	When I type UserName as "ettatavapa-4451@yopmail.com" 
 	And I type Password as "Test123#" on Login Page 
 	And I click on Login button 
@@ -218,12 +218,12 @@ Scenario: Dependent_FA
 	
 	Then I should be on Tell us about yourself Page 
 	When I type month as "01" 
-	And I type FirstName as "Susan Change of Name"
+	And I type FirstName as "Susan Change of Name" 
 	And I type Day as "01" 
 	And I type year as "1990" 
 	And I select sex as "Female" 
 	And I click Save button on Tell us about yourself Page 
-	Then I should be on Home address Page
+	Then I should be on Home address Page 
 	When I enter Street Address as "34 Elsmere Blvd" 
 	And  I enter City as "Wilmington" 
 	And I enter ZipCode as "19805" 
@@ -247,8 +247,8 @@ Scenario: Dependent_FA
 	Then I should be on Application help Page 
 	When I select the option as "No" 
 	And I click Save button on Application help Page 
-	Then I should be on Who needs health coverage? Page
-	When I click Save button on Who needs health coverage? Page  
+	Then I should be on Who needs health coverage? Page 
+	When I click Save button on Who needs health coverage? Page 
 	Then I should be on Where does everyone live? Page 
 	When I select option as "Yes" on Where does everyone live? Page 
 	And I click Save button on Where does everyone live? Page 
@@ -258,7 +258,7 @@ Scenario: Dependent_FA
 	When I select option as "None of these apply to the people in the household" on Household information 
 	And I click Save button on Household information 
 	
-	Then I Should be on User Information Page after name update
+	Then I Should be on User Information Page after name update 
 	When I click Save button on User Information Page 
 	
 	Then I Should be on Spouse Information Page 
@@ -267,7 +267,7 @@ Scenario: Dependent_FA
 	Then I Should be on Baby Information Page 
 	When I click Save button on User Information Page 
 	
-	Then I Should be on User Information Page after name update
+	Then I Should be on User Information Page after name update 
 	And I select Susan doesn't have an SSN option 
 	And I click Save button on User Information Page 
 	
@@ -299,11 +299,11 @@ Scenario: Dependent_FA
 	
 	When I click Save button on Incarceration release Page 
 	
-	Then I should be on User's incarceration release Page after name change
+	Then I should be on User's incarceration release Page after name change 
 	When I type month as "09" on User's incarceration release Page 
 	When I type day as "15" on User's incarceration release Page 
 	When I type year as "2019" on User's incarceration release Page 
-	When I click Save button on User's incarceration release Page  
+	When I click Save button on User's incarceration release Page 
 	
 	Then I should be on Review your application Page 
 	When I click Save button on Review your application Page 

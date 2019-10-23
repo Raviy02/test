@@ -1,2 +1,1 @@
-classpath:Features/SAML.feature:4
-
+classpath:Features/OnePerson_FA_Spanish.feature:4

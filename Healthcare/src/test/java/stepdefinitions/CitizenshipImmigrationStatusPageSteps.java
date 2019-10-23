@@ -23,7 +23,7 @@ public class CitizenshipImmigrationStatusPageSteps {
 		String lang = System.getProperty("language");
 		String text = "";
 		if (lang.equalsIgnoreCase("english")) {
-			text = "Citizenship & Immigration Status";
+			text = "Citizenship & immigration status";
 		} else if (lang.equalsIgnoreCase("spanish")) {
 			text = "Ciudadanía y estatus migratorio";
 		}
