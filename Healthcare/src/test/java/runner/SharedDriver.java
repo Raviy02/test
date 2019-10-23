@@ -1,5 +1,6 @@
 package runner;
 
+import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.OutputType;
@@ -25,17 +26,20 @@ public class SharedDriver extends EventFiringWebDriver {
 	private static final WebDriver REAL_DRIVER;
 	private static boolean takenScreenshot = false;
 
-	/*
-	 * private static final Thread CLOSE_THREAD = new Thread() {
-	 * 
-	 * @Override public void run() { REAL_DRIVER.quit(); try {
-	 * Runtime.getRuntime().exec("taskkill /F /IM chromedriver_Win.exe /T");
-	 * Runtime.getRuntime().exec("taskkill /F /IM geckodriver_Win.exe /T");
-	 * Runtime.getRuntime().exec("taskkill /F /IM Microsoft Edge.exe /T"); } catch
-	 * (IOException e) { // TODO Auto-generated catch block e.printStackTrace();
-	 * 
-	 * } } };
-	 */
+	private static final Thread CLOSE_THREAD = new Thread() {
+
+		@Override
+		public void run() {
+			REAL_DRIVER.quit();
+			try {
+				Runtime.getRuntime().exec("taskkill /F /IM chromedriver_Win.exe /T");
+				Runtime.getRuntime().exec("taskkill /F /IM geckodriver_Win.exe /T");
+				Runtime.getRuntime().exec("taskkill /F /IM Microsoft Edge.exe /T");
+			} catch (IOException e) { // TODO Auto-generated catch block e.printStackTrace();
+
+			}
+		}
+	};
 
 	static {
 		String browser = System.getProperty("browser");
@@ -75,7 +79,7 @@ public class SharedDriver extends EventFiringWebDriver {
 		}
 		// implicit wait set up
 		REAL_DRIVER.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
-		// Runtime.getRuntime().addShutdownHook(CLOSE_THREAD);
+		Runtime.getRuntime().addShutdownHook(CLOSE_THREAD);
 	}
 
 	public SharedDriver() {
@@ -84,12 +88,14 @@ public class SharedDriver extends EventFiringWebDriver {
 		CUtil.setWebDriver(REAL_DRIVER);
 	}
 
-	/*
-	 * @Override public void close() { if (Thread.currentThread() != CLOSE_THREAD) {
-	 * throw new UnsupportedOperationException(
-	 * "You shouldn't close this WebDriver. It's shared and will close when the JVM exits."
-	 * ); } super.close(); }
-	 */
+	@Override
+	public void close() {
+		if (Thread.currentThread() != CLOSE_THREAD) {
+			throw new UnsupportedOperationException(
+					"You shouldn't close this WebDriver. It's shared and will close when the JVM exits.");
+		}
+		super.close();
+	}
 
 	@Before
 	/**
