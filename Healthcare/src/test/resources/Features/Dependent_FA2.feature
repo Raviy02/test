@@ -1,54 +1,14 @@
-@regression @Multi_FA 
+@regression_2 @Multi_FA_2 
 Feature: Dependent_FA 
 
 Scenario: Dependent_FA 
-	Given I navigate to Login Page 
-	When I click on Create One link 
-	Then I should be on Create an account Page 
-	When I select state as "Delaware" 
-	And I type First Name as "Susan" 
-	And I type Last Name as "Griffith" 
-	And I type email ID 
-	And I type Password as "Test123#" 
-	And I Retype Password as "Test123#" 
-	And I select First Question as "What is your favorite radio station?" 
-	And I type First answer as "station" 
-	And I select Second Question as "What was your favorite toy when you were a child?" 
-	And I type Second answer as "child" 
-	And I select Third Question as "What is your favorite cuisine?" 
-	And I type Third answer as "cuisine" 
-	And I accecpt Privacy, Terms & Conditions 
-	And I click on Create Account button 
-	And I Verify tehe created account 
-	Then I should be on Account Confirmation Page 
-	When I click on Continue to login button 
-	Then I should be on Login Page 
-	When I type UserName 
+		Given I navigate to Login Page 
+	When I type UserName as "ettatavapa-4451@yopmail.com" 
 	And I type Password as "Test123#" on Login Page 
 	And I click on Login button 
 	#Then I should be on MarketPlace Page 
 	When I click on User Profile option 
 	And I click on My Profile Option 
-	Then I should be on My Profile Page 
-	When I click on Verify My Profile 
-	Then I should be on Verify Your Identity Page 
-	When I click on Get Started button 
-	Then I should be on Contact Information Page 
-	When I type Date of Birth as "01011990" 
-	And I type Street Address as "34 Elsmere Blvd" 
-	And I type City as "Wilmington" 
-	And I type Zip Code as "19805" 
-	And I type Phone Number as "2025547416" 
-	And I select Type of Phone as "Home" 
-	And I click on Continue Button 
-	
-	Then I should be on Identity Questions Page 
-	When I answer all questions with answer as "NONE OF THE ABOVE/DOES NOT APPLY" 
-	And I click on Continue button Identity Questions Page 
-	
-	Then I should be on Identity Verified Page 
-	When I click on Continue button Identity Verified Page 
-	
 	Then I should be on My Profile Page 
 	When I click on My Applications & Coverage option 
 	
@@ -202,15 +162,15 @@ Scenario: Dependent_FA
 	And I click Save button 
 	Then I should see the Status as "See if your doctors, facilities & drugs are covered" 
 	When I click on Skip button 
-	Then I should see the Status as "Estimate total yearly costs" 
-	When I select option as "Expect low use" for Select the level of care 
-	And I click on Next person button 
-	Then I should see the Status as "Estimate total yearly costs" 
-	When I select option as "Expect low use" for Select the level of care 
-	And I click on Next person button 
-	Then I should see the Status as "Estimate total yearly costs" 
-	When I select option as "Expect low use" for Select the level of care 
-	And I click Save button 
+	#Then I should see the Status as "Estimate total yearly costs" 
+	#When I select option as "Expect low use" for Select the level of care 
+	#And I click on Next person button 
+	#Then I should see the Status as "Estimate total yearly costs" 
+	#When I select option as "Expect low use" for Select the level of care 
+	#And I click on Next person button 
+	#Then I should see the Status as "Estimate total yearly costs" 
+	#When I select option as "Expect low use" for Select the level of care 
+	#And I click Save button 
 	Then I should see the Status as "Health plan groups for your household" 
 	When I click on Change Groups button 
 	And I select "Move to a new group" for Spouse 

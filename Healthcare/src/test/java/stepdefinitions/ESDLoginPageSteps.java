@@ -22,6 +22,11 @@ public class ESDLoginPageSteps {
 		Stub.initESD();
 	}
 
+	@Given("I login to ESD_{int}")
+	public void i_login_to_ESD_(Integer int1) {
+		Stub.initESD2();
+	}
+
 	@Given("I am on CCR landing page")
 	public void i_am_on_CCR_landing_page() {
 		Stub.initCCR();

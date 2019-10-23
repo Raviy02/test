@@ -25,6 +25,12 @@ public class EligibilitySupportStaffDesktopPageAction {
 	public void typeDOB(String text) {
 		CUtil.waitForElementDisappear(By.xpath("//div[text()='Loading the page ...']"));
 		CUtil.waitForVisibleElement(By.xpath("//*[@name='personSearchDOB']"));
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		CUtil.typeSlowly(By.xpath("//*[@name='personSearchDOB']"), text);
 	}
 
@@ -130,7 +136,13 @@ public class EligibilitySupportStaffDesktopPageAction {
 
 	public void typeApplicationID(String applicationID) {
 		CUtil.waitForVisibleElement(By.xpath("//input[@id='appIDSearch']"));
-		CUtil.type(By.xpath("//input[@id='appIDSearch']"), applicationID);
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		CUtil.typeSlowly(By.xpath("//input[@id='appIDSearch']"), applicationID);
 	}
 
 	public void selectTenantID(String option) {
@@ -143,7 +155,7 @@ public class EligibilitySupportStaffDesktopPageAction {
 
 	public boolean isStatusUpdated(String text) {
 		String locator = "//td/a[text()='" + CUtil.applicationID.trim() + "']/parent::td/following-sibling::td[5]";
-		System.out.println(CUtil.getText(By.xpath("By.xpath(locator)")));
+		System.out.println(CUtil.getText(By.xpath(locator)));
 		return CUtil.isContainsText(By.xpath(locator), text);
 	}
 

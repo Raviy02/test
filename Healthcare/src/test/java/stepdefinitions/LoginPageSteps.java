@@ -54,6 +54,13 @@ public class LoginPageSteps {
 		LandingPageActions.enterUserName(CUtil.email);
 	}
 
+	@When("I type UserName as {string}")
+	public void i_type_UserName_as(String text) {
+		CUtil.switchToMainWindow();
+		CUtil.email = text;
+		LandingPageActions.enterUserName(text);
+	}
+
 	@When("I type Password as {string} on Login Page")
 	public void i_type_Password_as_on_Login_Page(String text) {
 		LandingPageActions.enterPassword(text);

@@ -173,7 +173,7 @@ Scenario: OnePerson_NFA
 	When I click VIEW ELIGIBILITY NOTICE (PDF) button
 	Then I should see Continue to enrollment button
 	When I click Continue to enrollment button
-	Then I should see the Status as "You're eligible to enroll in Marketplace coverage"
+	Then I should see the Status as "You’re eligible to enroll in Marketplace coverage"
 	When I should click on Start Button
 	Then I should see the Status as "Report tobacco use"
 	When I select option as "No" for tobacco use

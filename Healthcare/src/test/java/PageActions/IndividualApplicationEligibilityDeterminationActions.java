@@ -34,6 +34,11 @@ public class IndividualApplicationEligibilityDeterminationActions {
 
 	public void clickContinueToEnrollmentButton() {
 		CUtil.click(By.xpath("//button[@id='proceedToEnrollBtn']"));
+		// System.out.println(driver.getCurrentUrl());
+		// String url =
+		// "https://:PCTest@2020@test3.healthcare.gov/marketplace/auth/enroll/consumers/?a=2074178&cache=true&t=DE";
+		// System.out.println(url);
+		// driver.navigate().to(url);
 	}
 
 	public boolean isStatusDisplayed(String text) {
@@ -166,6 +171,7 @@ public class IndividualApplicationEligibilityDeterminationActions {
 	}
 
 	public void selectGroup(String option) {
+		CUtil.waitForVisibleElement(By.xpath("//*[contains(@name,'select-enrollment-group')]"));
 		List<WebElement> list = driver.findElements(By.xpath("//*[contains(@name,'select-enrollment-group')]"));
 		CUtil.selectDropdown(list.get(list.size() - 1), option);
 
