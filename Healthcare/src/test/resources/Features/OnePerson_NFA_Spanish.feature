@@ -1,7 +1,7 @@
-@regression @One_NFA_spanish
-Feature: OnePerson_NFA
+@regression_spanish @One_NFA_spanish
+Feature: One_NFA_spanish
 
-  Scenario: OnePerson_NFA
+  Scenario: One_NFA_spanish
     Given I navigate to Login Page
     When I click on Create One link
     Then I should be on Create an account Page
